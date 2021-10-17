@@ -7,7 +7,8 @@ import { Provider } from "react-redux";
 
 export const App = () => {
   const defaultState = {
-    easyQuestions: []
+    easyQuestions: [],
+    counter: 0,
   };
 
   const reducer = (state = defaultState, action) => {
@@ -28,7 +29,18 @@ export const App = () => {
         }
         randomQuestions.push(mem);
       }
-      return {...state, easyQuestions: {easyQuestions: randomQuestions}};
+      return {...state, easyQuestions: {easyQuestions: randomQuestions}, counter: 0};
+    } else if (action.type === "ADD_ANSWER") {
+
+      action.allQuestions.easyQuestions[action.questionsId].usersAnswer = action.usersAnswer;
+      let numberOfCorrectQuestions = 0;
+      action.allQuestions.easyQuestions.map((question) => {
+        if (question.correctAnswer == question.usersAnswer) {
+          numberOfCorrectQuestions++;
+        }
+      });
+      return {...state, easyQuestions: action.allQuestions, counter: numberOfCorrectQuestions};
+      return state;
     } else {
       return state;
     }
@@ -68,5 +80,3 @@ export const App = () => {
     </div>
   );
 }
-
-
