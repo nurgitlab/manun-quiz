@@ -5,6 +5,7 @@
       "question": "Игровой номер Криштиану Роналду в последние 10 лет:",
       "answers": [1,7,10,22],
       "correctAnswer": "7",
+      "usersAnswer": "",
       "imageUrl": ""
     },
     {
@@ -12,6 +13,7 @@
       "question": "Игровой номер Месси в Барселоне:",
       "answers": [1,7,10,22],
       "correctAnswer": "10",
+      "usersAnswer": "",
       "imageUrl": ""
     },
     {
@@ -19,6 +21,7 @@
       "question": "Игровой номер Артёма Дзюбы в Зените:",
       "answers": [1,7,10,22],
       "correctAnswer": "22",
+      "usersAnswer": "",
       "imageUrl": ""
     },
     {
@@ -31,6 +34,7 @@
         "Забил красивейший гол головой"
       ],
       "correctAnswer": "Интимный скандал",
+      "usersAnswer": "",
       "imageUrl": ""
     },
     {
@@ -43,6 +47,33 @@
         "ЦСКА"
       ],
       "correctAnswer": "Зенит",
+      "usersAnswer": "",
+      "imageUrl": ""
+    },
+    {
+      "id": 5,
+      "question": "Кому Барселона проиграла 2-8:",
+      "answers": [
+        "Спартаку",
+        "Зениту",
+        "Баварии",
+        "ЦСКА"
+      ],
+      "correctAnswer": "Баварии",
+      "usersAnswer": "",
+      "imageUrl": ""
+    },
+    {
+      "id": 6,
+      "question": "Единственный вратарь получивший золотой мяч:",
+      "answers": [
+        "Лев Яшин",
+        "Кирилл Яшин",
+        "Криштиану Роналду",
+        "Буфонище"
+      ],
+      "correctAnswer": "Лев Яшин",
+      "usersAnswer": "",
       "imageUrl": ""
     }
   ]
