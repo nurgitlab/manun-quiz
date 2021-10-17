@@ -20,6 +20,12 @@ export const App = () => {
         let mem = action.newQuestions.easyQuestions[randomNum];
         action.newQuestions.easyQuestions[randomNum] = action.newQuestions.easyQuestions[i];
         action.newQuestions.easyQuestions[i] = mem;
+        for (let j = 0; j < 4; j++) {
+          let randomAnswer = Math.floor(Math.random() * action.newQuestions.easyQuestions[i].answers.length - j) + j;
+          let memAnswer = action.newQuestions.easyQuestions[i].answers[randomAnswer];
+          action.newQuestions.easyQuestions[i].answers[randomAnswer] = action.newQuestions.easyQuestions[i].answers[j];
+          action.newQuestions.easyQuestions[i].answers[j] = memAnswer;
+        }
         randomQuestions.push(mem);
       }
       return {...state, easyQuestions: {easyQuestions: randomQuestions}};
