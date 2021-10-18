@@ -1,14 +1,17 @@
 import myQuestions from "../db.json";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 
 export const StartQuiz = () => {
+  const history = useHistory()
   const obj = myQuestions;
 
   // Вот тут в целом вопросы можно вызвать и через AXIOS с сервера, заглушка
   // Тут я должен положить файлы в REDUX!!!
 
   const dispatch = useDispatch();
+
   const addQuestionsToRedux = () => {
     dispatch({
       type: "IMPORT_RANDOM_QUESTIONS",
@@ -27,6 +30,11 @@ export const StartQuiz = () => {
       allQuestions: currentQuestions,
     });
   };
+
+  const goToQuestions = () => {
+    history.push('/questions/0')
+  }
+
   return (
     <div>
       Start Quiz Page
@@ -34,6 +42,7 @@ export const StartQuiz = () => {
       <h2>Total scores: {counterOfCorrectAnswers}</h2>
       <br/>
       <button onClick={addQuestionsToRedux}>SHOW QUESTIONS</button>
+      <button onClick={goToQuestions}>Go to the questions</button>
       <br/>
       <div>
         <ul>
@@ -56,7 +65,7 @@ export const StartQuiz = () => {
                 </ul>
               </li>
             );
-          }) : (<div>SSH</div>)}
+          }) : (<div>No questions</div>)}
         </ul>
       </div>
     </div>

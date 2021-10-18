@@ -3,6 +3,7 @@ import { MainPage } from "./pages/MainPage";
 import { StartQuiz } from "./pages/StartQuiz";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { QuestionShow } from "./pages/QuestionShow";
 
 
 export const App = () => {
@@ -74,6 +75,21 @@ export const App = () => {
                 <StartQuiz/>
               </div>
             </Route>
+
+            <Route
+              path={"/questions/:questionsId"}
+              render={({
+                         match: {
+                           params: {
+                             questionsId
+                           }
+                         }
+                       }) => (
+                <QuestionShow questionsId = {questionsId}/>
+              )}
+            >
+            </Route>
+
           </Switch>
         </BrowserRouter>
       </Provider>
