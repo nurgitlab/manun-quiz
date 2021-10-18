@@ -3,7 +3,7 @@ import { MainPage } from "./pages/MainPage";
 import { StartQuiz } from "./pages/StartQuiz";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { QuestionShow } from "./pages/QuestionShow";
+import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
 
 
 export const App = () => {
@@ -32,7 +32,6 @@ export const App = () => {
       }
       return {...state, easyQuestions: {easyQuestions: randomQuestions}, counter: 0};
     } else if (action.type === "ADD_ANSWER") {
-
       action.allQuestions.easyQuestions[action.questionsId].usersAnswer = action.usersAnswer;
       let numberOfCorrectQuestions = 0;
       action.allQuestions.easyQuestions.map((question) => {
@@ -41,7 +40,6 @@ export const App = () => {
         }
       });
       return {...state, easyQuestions: action.allQuestions, counter: numberOfCorrectQuestions};
-      return state;
     } else {
       return state;
     }
