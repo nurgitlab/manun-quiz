@@ -4,6 +4,7 @@ import { StartQuiz } from "./pages/StartQuiz";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
+import { FinalPage } from "./pages/FinalPage";
 
 
 export const App = () => {
@@ -17,7 +18,7 @@ export const App = () => {
       return {...state, easyQuestions: action.newQuestions};
     } else if (action.type === "IMPORT_RANDOM_QUESTIONS") {
       let randomQuestions = [];
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 5; i++) {
         let randomNum = Math.floor(Math.random() * (action.newQuestions.easyQuestions.length - i)) + i;
         let mem = action.newQuestions.easyQuestions[randomNum];
         action.newQuestions.easyQuestions[randomNum] = action.newQuestions.easyQuestions[i];
@@ -86,6 +87,15 @@ export const App = () => {
                 <QuestionShow questionsId = {questionsId}/>
               )}
             >
+            </Route>
+
+            <Route
+              path={"/final"}
+              exact={true}
+            >
+              <div>
+                <FinalPage />
+              </div>
             </Route>
 
           </Switch>

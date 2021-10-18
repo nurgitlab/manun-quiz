@@ -33,7 +33,7 @@ export const QuestionShow = ({questionsId}) => {
   };
   console.log(currentQuestions.easyQuestions.length);
   const goToFinalPage = () => {
-
+    history.push(`/final`)
   };
   return (
     <div>
