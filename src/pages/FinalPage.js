@@ -21,6 +21,9 @@ export const FinalPage = () => {
     let memIncorrectArray = []
     allQuestions.map((question) => {
       if (question.correctAnswer != question.usersAnswer) {
+        if (question.usersAnswer == "") {
+          question.usersAnswer = "Вы не выбрали вариант ответа!"
+        }
         memIncorrectArray.push({
           question: question.question,
           correctAns: question.correctAnswer,
