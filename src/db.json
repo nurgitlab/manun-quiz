@@ -75,6 +75,45 @@
       "correctAnswer": "Лев Яшин",
       "usersAnswer": "",
       "imageUrl": ""
+    },
+    {
+      "id": 7,
+      "question": "Назовите тайного игрока Зенита, оформивего чемпионство:",
+      "answers": [
+        "Вилков",
+        "Лунёв",
+        "Аршавин",
+        "Мбаппе"
+      ],
+      "correctAnswer": "Вилков",
+      "usersAnswer": "",
+      "imageUrl": ""
+    },
+    {
+      "id": 8,
+      "question": "Легенда МЮ:",
+      "answers": [
+        "Криш",
+        "Месси",
+        "Аршавин",
+        "Дзюба"
+      ],
+      "correctAnswer": "Криш",
+      "usersAnswer": "",
+      "imageUrl": ""
+    },
+    {
+      "id": 9,
+      "question": "Год основания МЮ:",
+      "answers": [
+        "1878",
+        "1934",
+        "1799",
+        "1703"
+      ],
+      "correctAnswer": "1878",
+      "usersAnswer": "",
+      "imageUrl": ""
     }
   ]
 }
