@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import "./QuestionShow.css";
 
+
 export const QuestionShow = ({questionsId}) => {
   const history = useHistory()
   const dispatch = useDispatch()
@@ -11,7 +12,6 @@ export const QuestionShow = ({questionsId}) => {
 
   const goToNextQuestion = () => {
     history.push(`/questions/${Number(questionsId)+1}`)
-    console.log("PUSHED")
   }
 
   const goToPrevQuestion = () => {
