@@ -5,6 +5,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
 import { FinalPage } from "./pages/FinalPage";
+import { NavBar } from "./pages/NavBar/NavBar";
 
 
 export const App = () => {
@@ -52,14 +53,15 @@ export const App = () => {
     <div>
       <Provider store={store}>
         <BrowserRouter>
+
+          <NavBar/>
+
           <Switch>
             <Route
               path={"/"}
               exact={true}
             >
               <div>
-                Manchester
-                <br/>
                 <MainPage/>
               </div>
             </Route>
@@ -69,8 +71,6 @@ export const App = () => {
               exact={true}
             >
               <div>
-                Manchester
-                <br/>
                 <StartQuiz/>
               </div>
             </Route>
@@ -84,7 +84,7 @@ export const App = () => {
                            }
                          }
                        }) => (
-                <QuestionShow questionsId = {questionsId}/>
+                <QuestionShow questionsId={questionsId}/>
               )}
             >
             </Route>
@@ -94,7 +94,7 @@ export const App = () => {
               exact={true}
             >
               <div>
-                <FinalPage />
+                <FinalPage/>
               </div>
             </Route>
 
@@ -103,4 +103,4 @@ export const App = () => {
       </Provider>
     </div>
   );
-}
+};

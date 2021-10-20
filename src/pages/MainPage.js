@@ -9,9 +9,9 @@ export const MainPage = () => {
 
   return (
     <div>
-      Main Page Manchester United
+
       <br/>
-      <button onClick={goToQuestions}>Go to questions</button>
+      <button onClick={goToQuestions}><h2>Go to questions</h2></button>
     </div>
   );
 };

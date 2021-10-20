@@ -4,11 +4,8 @@ import { useHistory } from "react-router";
 
 
 export const StartQuiz = () => {
-  const history = useHistory()
+  const history = useHistory();
   const obj = myQuestions;
-
-  // Вот тут в целом вопросы можно вызвать и через AXIOS с сервера, заглушка
-  // Тут я должен положить файлы в REDUX!!!
 
   const dispatch = useDispatch();
 
@@ -32,8 +29,12 @@ export const StartQuiz = () => {
   };
 
   const goToQuestions = () => {
-    history.push('/questions/0')
-  }
+    dispatch({
+      type: "IMPORT_RANDOM_QUESTIONS",
+      newQuestions: obj,
+    });
+    history.push('/questions/0');
+  };
 
   return (
     <div>

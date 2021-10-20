@@ -34,8 +34,6 @@ export const FinalPage = () => {
     setUsersMistakes(memIncorrectArray)
   };
 
-  console.log(usersMistakes)
-
   return (
     <div>
       THIS IS FINAL PAGE!

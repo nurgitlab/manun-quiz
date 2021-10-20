@@ -8,7 +8,6 @@ export const QuestionShow = ({questionsId}) => {
   const dispatch = useDispatch()
 
   const currentQuestions = useSelector(state => state.easyQuestions)
-  console.log(currentQuestions)
 
   const goToNextQuestion = () => {
     history.push(`/questions/${Number(questionsId)+1}`)
@@ -26,15 +25,17 @@ export const QuestionShow = ({questionsId}) => {
       allQuestions: currentQuestions,
     });
   };
-  console.log(currentQuestions.easyQuestions[questionsId]);
+
   const counterOfCorrectAnswers = useSelector(state => state.counter);
+
   const goToPrevModule = () => {
     history.push(`/questions/`);
   };
-  console.log(currentQuestions.easyQuestions.length);
+
   const goToFinalPage = () => {
     history.push(`/final`)
   };
+
   return (
     <div>
       {questionsId}
