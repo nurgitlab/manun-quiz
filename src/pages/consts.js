@@ -1,0 +1,1 @@
+export const ROOT_API = "https://newsapi.org/v2/everything?q=%D0%BC%D0%B0%D0%BD%D1%87%D0%B5%D1%81%D1%82%D0%B5%D1%80&pageSize=5&apiKey=065a3549bfe64380a1515a1508bcef61"

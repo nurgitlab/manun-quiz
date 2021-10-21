@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import "./QuestionShow.css";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 
 export const QuestionShow = ({questionsId}) => {
@@ -76,7 +77,7 @@ export const QuestionShow = ({questionsId}) => {
           </ul>
         </div> :
         <div>
-          404
+          <ErrorPage />
         </div>
       }
     </div>

@@ -6,6 +6,9 @@ import { Provider } from "react-redux";
 import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
 import { FinalPage } from "./pages/FinalPage";
 import { NavBar } from "./pages/NavBar/NavBar";
+import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
+import { AboutProject } from "./pages/AboutProject/AboutProject";
+import { Contacts } from "./pages/Contacts/Contacts";
 
 
 export const App = () => {
@@ -95,6 +98,24 @@ export const App = () => {
             >
               <div>
                 <FinalPage/>
+              </div>
+            </Route>
+
+            <Route
+              path={"/about"}
+              exact={true}
+            >
+              <div>
+                <AboutProject/>
+              </div>
+            </Route>
+
+            <Route
+              path={"/contacts"}
+              exact={true}
+            >
+              <div>
+                <Contacts/>
               </div>
             </Route>
 

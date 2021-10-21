@@ -8,6 +8,15 @@ export const NavBar = () => {
   const goToMain = () => {
     history.push("")
   }
+
+  const goToAbout = () => {
+    history.push("/about")
+  }
+
+  const goToContacts = () => {
+    history.push("/contacts")
+  }
+
   return (
     <div className={"main-div"}>
       <div
@@ -15,9 +24,27 @@ export const NavBar = () => {
         onClick={()=>goToMain()}
       >
       </div>
-      <div className={"nav-button"}>Главная страница</div>
-      <div className={"nav-button"}>О проекте</div>
-      <div className={"nav-button"}>Контакты</div>
+
+      <div
+        className={"nav-button"}
+        onClick={()=>goToMain()}
+      >
+        Главная страница
+      </div>
+
+      <div
+        className={"nav-button"}
+        onClick={()=>goToAbout()}
+      >
+        О проекте
+      </div>
+
+      <div
+        className={"nav-button"}
+        onClick={()=>goToContacts()}
+      >
+        Контакты
+      </div>
     </div>
   )
 }
