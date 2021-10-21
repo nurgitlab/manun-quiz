@@ -9,12 +9,13 @@ import { NavBar } from "./pages/NavBar/NavBar";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { AboutProject } from "./pages/AboutProject/AboutProject";
 import { Contacts } from "./pages/Contacts/Contacts";
-
+import "./App.css"
 
 export const App = () => {
   const defaultState = {
     easyQuestions: [],
     counter: 0,
+    news: [],
   };
 
   const reducer = (state = defaultState, action) => {
@@ -45,6 +46,8 @@ export const App = () => {
         }
       });
       return {...state, easyQuestions: action.allQuestions, counter: numberOfCorrectQuestions};
+    } else if (action.type == "ADD_NEWS") {
+      return {...state, news: action.news}
     } else {
       return state;
     }
@@ -54,74 +57,80 @@ export const App = () => {
 
   return (
     <div>
-      <Provider store={store}>
-        <BrowserRouter>
+      <div className={"main-background"}>
+        <Provider
+          store={store}
+        >
+          <BrowserRouter>
 
-          <NavBar/>
+            <NavBar/>
 
-          <Switch>
-            <Route
-              path={"/"}
-              exact={true}
-            >
-              <div>
-                <MainPage/>
-              </div>
-            </Route>
+            <Switch>
+              <Route
+                path={"/"}
+                exact={true}
+              >
+                <div className={"central-div"}>
+                  <MainPage/>
+                </div>
+              </Route>
 
-            <Route
-              path={"/questions"}
-              exact={true}
-            >
-              <div>
-                <StartQuiz/>
-              </div>
-            </Route>
+              <Route
+                path={"/questions"}
+                exact={true}
+              >
+                <div className={"central-div"}>
+                  <StartQuiz/>
+                </div>
+              </Route>
 
-            <Route
-              path={"/questions/:questionsId"}
-              render={({
-                         match: {
-                           params: {
-                             questionsId
+              <Route
+                path={"/questions/:questionsId"}
+                render={({
+                           match: {
+                             params: {
+                               questionsId
+                             }
                            }
-                         }
-                       }) => (
-                <QuestionShow questionsId={questionsId}/>
-              )}
-            >
-            </Route>
+                         }) => (
+                  <div className={"central-div"}>
+                    <QuestionShow questionsId={questionsId}/>
+                  </div>
+                )}
+              >
+              </Route>
 
-            <Route
-              path={"/final"}
-              exact={true}
-            >
-              <div>
-                <FinalPage/>
-              </div>
-            </Route>
+              <Route
+                path={"/final"}
+                exact={true}
+              >
+                <div className={"central-div"}>
+                  <FinalPage/>
+                </div>
+              </Route>
 
-            <Route
-              path={"/about"}
-              exact={true}
-            >
-              <div>
-                <AboutProject/>
-              </div>
-            </Route>
+              <Route
+                path={"/about"}
+                exact={true}
+              >
+                <div className={"central-div"}>
+                  <AboutProject/>
+                </div>
+              </Route>
 
-            <Route
-              path={"/contacts"}
-              exact={true}
-            >
-              <div>
-                <Contacts/>
-              </div>
-            </Route>
+              <Route
+                path={"/contacts"}
+                exact={true}
+              >
+                <div className={"central-div"}>
+                  <Contacts/>
+                </div>
+              </Route>
 
-          </Switch>
-        </BrowserRouter>
-      </Provider>
+            </Switch>
+          </BrowserRouter>
+        </Provider>
+      </div>
     </div>
   );
 };
