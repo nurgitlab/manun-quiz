@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { MainPage } from "./pages/MainPage";
+import { MainPage } from "./pages/MainPage/MainPage";
 import { StartQuiz } from "./pages/StartQuiz";
 import { createStore } from "redux";
 import { Provider } from "react-redux";

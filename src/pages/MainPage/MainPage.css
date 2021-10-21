@@ -1,0 +1,35 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: none;
+}
+
+
+
+.article {
+    height: 250px;
+    width: 400px;
+    border-radius: 10px;
+    position: relative;
+    border: black solid;
+    margin: 30px;
+}
+
+.article-image {
+    height: 200px;
+    width: 200px;
+    position: -webkit-sticky;
+    border-radius: 10px;
+    background: #c70101;
+}
+
+.article-title {
+    position: -webkit-sticky;
+}
+
+.news-div {
+    display: flex;
+    flex-wrap: wrap;
+}
