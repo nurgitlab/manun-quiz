@@ -48,7 +48,6 @@ export const FinalPage = () => {
       <br/>
       <button onClick={() => showMistakes()}>SHOW MY MISTAKES</button>
       <ul>
-        list
         {usersMistakes.map((item, id) => {
           return (
             <li key={id}>

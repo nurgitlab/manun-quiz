@@ -63,13 +63,13 @@ export const QuestionShow = ({questionsId}) => {
             <div
               className={"quiz-navigation"}
               // onClick={goToPrevModule}
-            >THIS IS FIRST QUESTION
+            >ЭТО ПЕРВЫЙ ВОПРОС!
             </div> :
             <div
               className={"quiz-navigation"}
               onClick={goToPrevQuestion}
             >
-              PREVIOUS QUESTION
+              ПРЕДЫДУЩИЙ ВОПРОС
             </div>
           }
           {questionsId == (currentQuestions.easyQuestions.length - 1) ?
@@ -77,13 +77,13 @@ export const QuestionShow = ({questionsId}) => {
               className={"quiz-navigation"}
               onClick={goToFinalPage}
             >
-              FINISH
+              ЗАКОНЧИТЬ ТЕСТ
             </div> :
             <div
               className={"quiz-navigation"}
               onClick={goToNextQuestion}
             >
-              NEXT QUESTION
+              СЛЕДУЮЩИЙ ВОПРОС
             </div>
           }
 

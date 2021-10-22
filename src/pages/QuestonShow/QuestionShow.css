@@ -47,7 +47,7 @@
 .quiz-navigation {
     width: 40%;
     margin: 10px 0px;
-    display: inline-block;
+    display: block;
 
     background: gray;
     font-weight: 700;

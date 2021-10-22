@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { MainPage } from "./pages/MainPage/MainPage";
-import { StartQuiz } from "./pages/StartQuiz";
+import { StartQuiz } from "./pages/StartQuiz/StartQuiz";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
-import { FinalPage } from "./pages/FinalPage";
+import { FinalPage } from "./pages/FinalPage/FinalPage";
 import { NavBar } from "./pages/NavBar/NavBar";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { AboutProject } from "./pages/AboutProject/AboutProject";
