@@ -37,21 +37,33 @@ export const MainPage = () => {
     showNews();
   }, []);
 
-  // console.log(news.articles)
-  // (news.articles).map(article=>{
-  //   console.log(article)
-  // })
-
   return (
     <div>
-      <button onClick={goToQuestions}><h2>Go to questions</h2></button>
-      <br/>
       <div
         className={"news-div"}
       >
+        <div
+          className={"article"}
+          onClick={goToQuestions}
+        >
+          <div
+            className={"article-image"}
+          >
+            <img
+              src={`https://specializedfortworth.com/wp-content/uploads/2017/02/property-management-Arlington-1500x998.jpg`}
+              width={"100%"}
+            />
+          </div>
+          <div
+            className={"article-title"}
+          >
+            Проверь свои знания о Манчестер Юнайтеде!
+          </div>
+        </div>
+
         {storeNews.length != 0 ?
-          storeNews.articles.map((article, id)=>{
-            return(
+          storeNews.articles.map((article, id) => {
+            return (
               <div
                 key={id}
                 className={"article"}
@@ -63,7 +75,8 @@ export const MainPage = () => {
                   />
                 </div>
                 <div
-                  className={"article-title"}>
+                  className={"article-title"}
+                >
                   {article.title}
                 </div>
               </div>

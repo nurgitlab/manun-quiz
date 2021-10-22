@@ -1,3 +1,29 @@
-.some-class {
-    color: red;
+.question-main-block{
+    padding: 0 30% 0 10%;
+    position: relative;
+}
+
+.quiz-answer-button {
+    width: 70%;
+    display: inline-block;
+
+    background: #c70101;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    border: 2px solid;
+    border-radius: 3px;
+    transition: 0.2s;
+
+    position: relative;
+    color: azure; /*задаём цвет ссылки*/
+    cursor: pointer;
+    line-height: 1;
+}
+.quiz-answer-button:hover {
+    background: darkred;
+}
+.quiz-answer-button:active {
+    background: white;
 }

@@ -6,19 +6,18 @@
     background: none;
 }
 
-
-
 .article {
     height: 250px;
     width: 400px;
     border-radius: 15px;
     position: relative;
 
-    border: black solid;
+    border: gray solid 2px;
     margin: 30px;
     background: azure;
 
     overflow: hidden;
+    cursor:pointer;
 }
 
 .article-image {

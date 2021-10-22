@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import "./QuestionShow.css";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
+import React from "react";
 
 
 export const QuestionShow = ({questionsId}) => {
@@ -9,6 +10,8 @@ export const QuestionShow = ({questionsId}) => {
   const dispatch = useDispatch();
 
   const currentQuestions = useSelector(state => state.easyQuestions);
+
+  const [usersAnswer,setUsersAnswer] = React.useState("")
 
   console.log(currentQuestions.length);
   console.log(currentQuestions);
@@ -23,6 +26,7 @@ export const QuestionShow = ({questionsId}) => {
   };
 
   const addAnswer = (answer, question, qId) => {
+    setUsersAnswer(answer)
     dispatch({
       type: "ADD_ANSWER",
       usersAnswer: answer,
@@ -41,37 +45,48 @@ export const QuestionShow = ({questionsId}) => {
     history.push(`/final`);
   };
 
+  console.log(currentQuestions)
+
   return (
     <div>
       {(currentQuestions.length) !== 0 ?
-        <div>
+        <div
+          className={"question-main-block"}
+        >
           {questionsId}
           <br/>
           {counterOfCorrectAnswers}
           <br/>
           {questionsId == 0 ?
-            <button onClick={goToPrevModule}>GO BACK</button> :
-            <button onClick={goToPrevQuestion}>PREVIOUS QUESTION</button>
+            <div onClick={goToPrevModule}>GO BACK</div> :
+            <div onClick={goToPrevQuestion}>PREVIOUS QUESTION</div>
           }
           {questionsId == (currentQuestions.easyQuestions.length - 1) ?
-            <button onClick={goToFinalPage}>FINISH</button> :
-            <button onClick={goToNextQuestion}>NEXT QUESTION</button>
+            <div onClick={goToFinalPage}>FINISH</div> :
+            <div onClick={goToNextQuestion}>NEXT QUESTION</div>
           }
           <br/>
+
           <span className={"some-class"}>{currentQuestions.easyQuestions[questionsId].question}</span>
           <br/>
           <ul>
             {currentQuestions.easyQuestions[questionsId].answers.map((answer, id) => {
               return (
-                <li key={id}>
-                  <button onClick={() => addAnswer(
-                    answer,
-                    currentQuestions.easyQuestions[questionsId],
-                    questionsId)
+                <div key={id}>
+                  {currentQuestions.easyQuestions[questionsId].usersAnswer == answer ?
+                    <span>*</span> : <span></span>
+                  }
+                  <div
+                    className={"quiz-answer-button"}
+                    onClick={() => addAnswer(
+                      answer,
+                      currentQuestions.easyQuestions[questionsId],
+                      questionsId,
+                    )
                   }>
                     {answer}
-                  </button>
-                </li>
+                  </div>
+                </div>
               );
             })}
           </ul>
