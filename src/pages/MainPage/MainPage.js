@@ -56,10 +56,12 @@ export const MainPage = () => {
                 key={id}
                 className={"article"}
               >
-                <img
-                  src={`${article.urlToImage}`}
-                  width={"100%"}
-                />
+                <div className={"article-image"}>
+                  <img
+                    src={`${article.urlToImage}`}
+                    width={"100%"}
+                  />
+                </div>
                 <div
                   className={"article-title"}>
                   {article.title}

@@ -23,10 +23,20 @@
 
 .article-image {
     height: 200px;
-    width: 200px;
-    position: -webkit-sticky;
-    border-radius: 10px;
-    background: #c70101;
+    width: 400px;
+    overflow: hidden;
+}
+
+.article-image img{
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+}
+
+.article-image img:hover{
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
 }
 
 .article-title {
