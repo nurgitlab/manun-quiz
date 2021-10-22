@@ -53,29 +53,48 @@ export const QuestionShow = ({questionsId}) => {
         <div
           className={"question-main-block"}
         >
-          {questionsId}
-          <br/>
-          {counterOfCorrectAnswers}
-          <br/>
+          <div
+            className={"progress"}
+          >
+            {Number(questionsId)+1} | {currentQuestions.easyQuestions.length}
+          </div>
+
           {questionsId == 0 ?
-            <div onClick={goToPrevModule}>GO BACK</div> :
-            <div onClick={goToPrevQuestion}>PREVIOUS QUESTION</div>
+            <div
+              className={"quiz-navigation"}
+              // onClick={goToPrevModule}
+            >THIS IS FIRST QUESTION
+            </div> :
+            <div
+              className={"quiz-navigation"}
+              onClick={goToPrevQuestion}
+            >
+              PREVIOUS QUESTION
+            </div>
           }
           {questionsId == (currentQuestions.easyQuestions.length - 1) ?
-            <div onClick={goToFinalPage}>FINISH</div> :
-            <div onClick={goToNextQuestion}>NEXT QUESTION</div>
+            <div
+              className={"quiz-navigation"}
+              onClick={goToFinalPage}
+            >
+              FINISH
+            </div> :
+            <div
+              className={"quiz-navigation"}
+              onClick={goToNextQuestion}
+            >
+              NEXT QUESTION
+            </div>
           }
-          <br/>
 
-          <span className={"some-class"}>{currentQuestions.easyQuestions[questionsId].question}</span>
-          <br/>
-          <ul>
+          <div className={"question"}>{currentQuestions.easyQuestions[questionsId].question}</div>
+
+          <div
+            className={"all-ans-block"}
+          >
             {currentQuestions.easyQuestions[questionsId].answers.map((answer, id) => {
               return (
                 <div key={id}>
-                  {currentQuestions.easyQuestions[questionsId].usersAnswer == answer ?
-                    <span>*</span> : <span></span>
-                  }
                   <div
                     className={"quiz-answer-button"}
                     onClick={() => addAnswer(
@@ -83,13 +102,17 @@ export const QuestionShow = ({questionsId}) => {
                       currentQuestions.easyQuestions[questionsId],
                       questionsId,
                     )
-                  }>
+                    }>
+                    {currentQuestions.easyQuestions[questionsId].usersAnswer == answer ?
+                      <span>>>>| </span> : <span></span>
+                    }
                     {answer}
                   </div>
                 </div>
               );
             })}
-          </ul>
+          </div>
+
         </div> :
         <div>
           <ErrorPage />
