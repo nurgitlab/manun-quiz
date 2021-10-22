@@ -92,13 +92,19 @@ export const FinalPage = () => {
                 className={"all-mistakes"}
               >
 
-                <div>
+                <div
+                  className={"show-question"}
+                >
                   {item.question}
                 </div>
-                <div>
+                <div
+                  className={"show-mistake"}
+                >
                   {item.usersAns}
                 </div>
-                <div>
+                <div
+                  className={"show-answer"}
+                >
                   {item.correctAns}
                 </div>
 
