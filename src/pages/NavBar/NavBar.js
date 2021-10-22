@@ -1,50 +1,50 @@
-import "./NavBar.css"
+import "./NavBar.css";
 import { useHistory } from "react-router";
 
 
 export const NavBar = () => {
-  const history = useHistory()
+  const history = useHistory();
 
   const goToMain = () => {
-    history.push("")
-  }
+    history.push("");
+  };
 
   const goToAbout = () => {
-    history.push("/about")
-  }
+    history.push("/about");
+  };
 
   const goToContacts = () => {
-    history.push("/contacts")
-  }
+    history.push("/contacts");
+  };
 
   return (
     <div className={"main-div"}>
       <div
         className={"logo"}
-        onClick={()=>goToMain()}
+        onClick={() => goToMain()}
       >
       </div>
 
       <div
         className={"nav-button"}
-        onClick={()=>goToMain()}
+        onClick={() => goToMain()}
       >
         Главная страница
       </div>
 
       <div
         className={"nav-button"}
-        onClick={()=>goToAbout()}
+        onClick={() => goToAbout()}
       >
         О проекте
       </div>
 
       <div
         className={"nav-button"}
-        onClick={()=>goToContacts()}
+        onClick={() => goToContacts()}
       >
         Контакты
       </div>
     </div>
-  )
-}
+  );
+};

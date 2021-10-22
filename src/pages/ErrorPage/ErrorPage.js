@@ -3,5 +3,5 @@ export const ErrorPage = () => {
     <div>
       Error Page 404
     </div>
-  )
-}
+  );
+};

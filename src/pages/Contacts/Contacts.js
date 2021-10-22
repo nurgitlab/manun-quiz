@@ -5,5 +5,5 @@ export const Contacts = () => {
 
       Нурбек. Мю.
     </div>
-  )
-}
+  );
+};

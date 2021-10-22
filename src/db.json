@@ -3,7 +3,12 @@
     {
       "id": 0,
       "question": "Игровой номер Криштиану Роналду в последние 10 лет:",
-      "answers": [1,7,10,22],
+      "answers": [
+        1,
+        7,
+        10,
+        22
+      ],
       "correctAnswer": "7",
       "usersAnswer": "",
       "imageUrl": ""
@@ -11,7 +16,12 @@
     {
       "id": 1,
       "question": "Игровой номер Месси в Барселоне:",
-      "answers": [1,7,10,22],
+      "answers": [
+        1,
+        7,
+        10,
+        22
+      ],
       "correctAnswer": "10",
       "usersAnswer": "",
       "imageUrl": ""
@@ -19,7 +29,12 @@
     {
       "id": 2,
       "question": "Игровой номер Артёма Дзюбы в Зените:",
-      "answers": [1,7,10,22],
+      "answers": [
+        1,
+        7,
+        10,
+        22
+      ],
       "correctAnswer": "22",
       "usersAnswer": "",
       "imageUrl": ""

@@ -1,6 +1,7 @@
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
+import "./FinalPage.css";
 
 
 export const FinalPage = () => {
@@ -35,33 +36,79 @@ export const FinalPage = () => {
   };
 
   return (
-    <div>
-      THIS IS FINAL PAGE!
-      <br/>
-      YOU FINISHED U.N.I.T.E.D QUIZ AND SOLVED
-      <br/>
-      <h2>{counterOfCorrectAnswers}/{numberOfQuestions}</h2>
-      <br/>
-      SCORES
-      <br/>
-      <button onClick={() => goBackToMain()}>RETURN TO MAIN PAGE</button>
-      <br/>
-      <button onClick={() => showMistakes()}>SHOW MY MISTAKES</button>
-      <ul>
-        {usersMistakes.map((item, id) => {
-          return (
-            <li key={id}>
-              ____________
-              <br/>
-              Вопрос: {item.question}
-              <br/>
-              Правильный ответ: {item.correctAns}
-              <br/>
-              Ваш ответ: {item.usersAns}
-            </li>
-          );
-        })}
-      </ul>
+    <div
+      className={"final-main-block"}
+    >
+      <div
+        className={"final-info"}
+      >
+        Поздравляем!
+      </div>
+      <div
+        className={"final-info"}
+      >
+        Вы прошли U.N.I.T.E.D. тест и набрали
+        <span
+          className={"big-font"}
+        >
+          {" " + counterOfCorrectAnswers + " "}
+        </span>
+        из
+        <span
+          className={"big-font"}
+        >
+          {" " + numberOfQuestions + " "}
+        </span>
+        очков.
+      </div>
+
+      <div
+        onClick={() => goBackToMain()}
+        className={"start-button"}
+      >
+        Вернуться на главную
+      </div>
+
+      {(numberOfQuestions-counterOfCorrectAnswers)===0 ? (
+        <div
+          className={"big-font"}
+        >
+          WOW!  Вы знаток Манчестер Юнайтеда!
+        </div>
+      ):(
+        <div>
+
+          <div
+            onClick={() => showMistakes()}
+            className={"start-button"}
+          >
+            Показать мои ошибки
+          </div>
+
+          {usersMistakes.map((item, id) => {
+            return (
+              <div
+                key={id}
+                className={"all-mistakes"}
+              >
+
+                <div>
+                  {item.question}
+                </div>
+                <div>
+                  {item.usersAns}
+                </div>
+                <div>
+                  {item.correctAns}
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+
     </div>
   )
 }

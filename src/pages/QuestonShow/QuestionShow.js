@@ -11,7 +11,7 @@ export const QuestionShow = ({questionsId}) => {
 
   const currentQuestions = useSelector(state => state.easyQuestions);
 
-  const [usersAnswer,setUsersAnswer] = React.useState("")
+  const [usersAnswer, setUsersAnswer] = React.useState("");
 
   console.log(currentQuestions.length);
   console.log(currentQuestions);
@@ -26,7 +26,7 @@ export const QuestionShow = ({questionsId}) => {
   };
 
   const addAnswer = (answer, question, qId) => {
-    setUsersAnswer(answer)
+    setUsersAnswer(answer);
     dispatch({
       type: "ADD_ANSWER",
       usersAnswer: answer,
@@ -35,17 +35,9 @@ export const QuestionShow = ({questionsId}) => {
     });
   };
 
-  const counterOfCorrectAnswers = useSelector(state => state.counter);
-
-  const goToPrevModule = () => {
-    history.push(`/questions/`);
-  };
-
   const goToFinalPage = () => {
     history.push(`/final`);
   };
-
-  console.log(currentQuestions)
 
   return (
     <div>
@@ -56,13 +48,12 @@ export const QuestionShow = ({questionsId}) => {
           <div
             className={"progress"}
           >
-            {Number(questionsId)+1} | {currentQuestions.easyQuestions.length}
+            {Number(questionsId) + 1} | {currentQuestions.easyQuestions.length}
           </div>
 
           {questionsId == 0 ?
             <div
               className={"quiz-navigation"}
-              // onClick={goToPrevModule}
             >ЭТО ПЕРВЫЙ ВОПРОС!
             </div> :
             <div
@@ -115,7 +106,7 @@ export const QuestionShow = ({questionsId}) => {
 
         </div> :
         <div>
-          <ErrorPage />
+          <ErrorPage/>
         </div>
       }
     </div>

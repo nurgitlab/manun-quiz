@@ -2,16 +2,16 @@ import { useHistory } from "react-router";
 import axios from "axios";
 import { ROOT_API } from "../consts";
 import React from "react";
-import "./MainPage.css"
+import "./MainPage.css";
 import { useDispatch, useSelector } from "react-redux";
 
 
 export const MainPage = () => {
   const history = useHistory();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const storeNews = useSelector(state => state.news)
-  console.log(storeNews)
+  const storeNews = useSelector(state => state.news);
+  console.log(storeNews);
 
   const goToQuestions = () => {
     history.push("/questions");
@@ -24,7 +24,7 @@ export const MainPage = () => {
           dispatch({
             type: "ADD_NEWS",
             news: response.data,
-          })
+          });
         })
         .catch(e => {
           console.error(e.message);
@@ -80,12 +80,11 @@ export const MainPage = () => {
                   {article.title}
                 </div>
               </div>
-            )
+            );
           }) :
           <div>No news</div>
         }
       </div>
-
     </div>
   );
 };
