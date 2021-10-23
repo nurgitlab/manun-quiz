@@ -19,14 +19,14 @@
 
 .quiz-answer-button {
     width: 70%;
-    margin: 10px 0px;
+    margin: 10px 0px 0px 0px;
     display: inline-block;
 
     background: #c70101;
     font-weight: 700;
     text-decoration: none;
     user-select: none;
-    padding: .5em 2em;
+    padding: .5em 3%;
     border: 2px solid;
     border-radius: 3px;
     transition: 0.2s;
@@ -42,7 +42,6 @@
 .quiz-answer-button:active {
     background: white;
 }
-
 
 .quiz-navigation {
     width: 40%;
@@ -68,4 +67,12 @@
 }
 .quiz-navigation:active {
     background: white;
+}
+
+.start-image-block {
+    margin: 40px 0 0 0;
+    border-radius: 5px;
+    border: solid 2px #c70101;
+    width: 76.7%;
+    overflow: hidden;
 }

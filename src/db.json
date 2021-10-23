@@ -233,6 +233,19 @@
       "correctAnswer": "Уэйн Руни",
       "usersAnswer": "",
       "imageUrl": ""
+    },
+    {
+      "id": 18,
+      "question": "Мерзацев надо знать в лицо. Кто изображён на картинке?",
+      "answers": [
+        "Майкл Дин",
+        "Ли Мейсон",
+        "Джонатан Мосс",
+        "Крейг Поусон"
+      ],
+      "correctAnswer": "Майкл Дин",
+      "usersAnswer": "",
+      "imageUrl": "https://storage.googleapis.com/telesite-prod/photos/1d42c140-558b-11e9-9c40-d77a8b7c8b22.jpeg"
     }
   ]
 }

@@ -78,7 +78,11 @@ export const QuestionShow = ({questionsId}) => {
             </div>
           }
 
-          <div className={"question"}>{currentQuestions.easyQuestions[questionsId].question}</div>
+          <div
+            className={"question"}
+          >
+            {currentQuestions.easyQuestions[questionsId].question}
+          </div>
 
           <div
             className={"all-ans-block"}
@@ -103,7 +107,24 @@ export const QuestionShow = ({questionsId}) => {
               );
             })}
           </div>
-
+          <div
+            className={"all-ans-block"}
+          >
+            {currentQuestions.easyQuestions[questionsId].imageUrl !== "" ? (
+              <div
+                className={"start-image-block"}
+              >
+                <img
+                  width={"100%"}
+                  height={"auto"}
+                  src={`${currentQuestions.easyQuestions[questionsId].imageUrl}`}
+                />
+              </div>
+            ) : (
+              <div>
+              </div>
+            )}
+          </div>
         </div> :
         <div>
           <ErrorPage/>
