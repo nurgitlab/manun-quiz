@@ -11,11 +11,12 @@ export const MainPage = () => {
   const dispatch = useDispatch();
 
   const storeNews = useSelector(state => state.news);
-  console.log(storeNews.articles[0].description);
 
   const goToQuestions = () => {
     history.push("/questions");
   };
+
+  console.log(storeNews)
 
   const showNews = () => {
     if (storeNews.length === 0) {
@@ -55,7 +56,7 @@ export const MainPage = () => {
             />
           </div>
           <div
-            className={"article-title"}
+            className={"big-title"}
           >
             Проверь свои знания о Манчестер Юнайтеде!
           </div>
@@ -64,9 +65,10 @@ export const MainPage = () => {
         {storeNews.length != 0 ?
           storeNews.articles.map((article, id) => {
             return (
-              <div
+              <a
                 key={id}
                 className={"article"}
+                href={`${article.url}`}
               >
                 <div className={"article-image"}>
                   <img
@@ -79,10 +81,18 @@ export const MainPage = () => {
                 >
                   {article.description}
                 </div>
-              </div>
+              </a>
             );
           }) :
-          <div>No news</div>
+          <div
+            className={"article"}
+          >
+            <div
+              className={"article-title"}
+            >
+              Loading...
+            </div>
+          </div>
         }
       </div>
     </div>
