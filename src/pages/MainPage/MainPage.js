@@ -11,7 +11,7 @@ export const MainPage = () => {
   const dispatch = useDispatch();
 
   const storeNews = useSelector(state => state.news);
-  console.log(storeNews);
+  console.log(storeNews.articles[0].description);
 
   const goToQuestions = () => {
     history.push("/questions");
@@ -77,7 +77,7 @@ export const MainPage = () => {
                 <div
                   className={"article-title"}
                 >
-                  {article.title}
+                  {article.description}
                 </div>
               </div>
             );
