@@ -33,7 +33,7 @@ export const reducer = (state = defaultState, action) => {
     });
     return {...state, easyQuestions: action.allQuestions, counter: numberOfCorrectQuestions};
   } else if (action.type == "ADD_NEWS") {
-    return {...state, news: action.news}
+    return {...state, news: action.news};
   } else {
     return state;
   }
