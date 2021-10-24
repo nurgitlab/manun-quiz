@@ -285,6 +285,19 @@
       "correctAnswer": "2016-2018",
       "usersAnswer": "",
       "imageUrl": "https://stadion.uz/images/news/%D0%BC%D0%BE%D1%83%D1%80%D0%B8%D0%BD%D1%8C%D0%BE_%D0%B62.jpg"
+    },
+    {
+      "id": 22,
+      "question": "Команда, которая проиграла все матчи в группе ЛЕ, кроме игры с МЮ в сезоне 2019/20:",
+      "answers": [
+        "Астана",
+        "ЦСКА",
+        "Шахтёр",
+        "Динамо"
+      ],
+      "correctAnswer": "Астана",
+      "usersAnswer": "",
+      "imageUrl": "https://cdn1.ntv.com.tr/gorsel/FfecFakys0yBy9iueOMQyg.jpg?width=1000&mode=both&scale=both&v=1358430198000"
     }
   ]
 }

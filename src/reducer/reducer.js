@@ -17,20 +17,25 @@ export const reducer = (state = defaultState, action) => {
     return {...state, easyQuestions: action.newQuestions};
   } else if (action.type === IMPORT_RANDOM_QUESTIONS) {
     let randomQuestions = [];
-    for (let i = 0; i < 10; i++) {
-      let randomNum = Math.floor(Math.random() * (action.newQuestions.easyQuestions.length - i)) + i;
-      let mem = action.newQuestions.easyQuestions[randomNum];
-      action.newQuestions.easyQuestions[randomNum] = action.newQuestions.easyQuestions[i];
-      action.newQuestions.easyQuestions[i] = mem;
+    for (let i = 0; i < 5; i++) {
+      let listOfQuestions = action.newQuestions.easyQuestions;
+      let randomNum = Math.floor(Math.random() * (listOfQuestions.length - i)) + i;
+      let mem = listOfQuestions[randomNum];
+      listOfQuestions[randomNum] = listOfQuestions[i];
+      listOfQuestions[i] = mem;
       for (let j = 0; j < 4; j++) {
-        let randomAnswer = Math.floor(Math.random() * action.newQuestions.easyQuestions[i].answers.length - j) + j;
-        let memAnswer = action.newQuestions.easyQuestions[i].answers[randomAnswer];
-        action.newQuestions.easyQuestions[i].answers[randomAnswer] = action.newQuestions.easyQuestions[i].answers[j];
-        action.newQuestions.easyQuestions[i].answers[j] = memAnswer;
+        let randomAnswer = Math.floor(Math.random() * listOfQuestions[i].answers.length - j) + j;
+        let memAnswer = listOfQuestions[i].answers[randomAnswer];
+        listOfQuestions[i].answers[randomAnswer] = listOfQuestions[i].answers[j];
+        listOfQuestions[i].answers[j] = memAnswer;
       }
       randomQuestions.push(mem);
     }
-    return {...state, easyQuestions: {easyQuestions: randomQuestions}, counter: 0};
+    return {
+      ...state,
+      easyQuestions: {easyQuestions: randomQuestions},
+      counter: 0
+    };
   } else if (action.type === ADD_ANSWER) {
     action.allQuestions.easyQuestions[action.questionsId].usersAnswer = action.usersAnswer;
     let numberOfCorrectQuestions = 0;
@@ -39,9 +44,16 @@ export const reducer = (state = defaultState, action) => {
         numberOfCorrectQuestions++;
       }
     });
-    return {...state, easyQuestions: action.allQuestions, counter: numberOfCorrectQuestions};
+    return {
+      ...state,
+      easyQuestions: action.allQuestions,
+      counter: numberOfCorrectQuestions
+    };
   } else if (action.type === ADD_NEWS) {
-    return {...state, news: action.news};
+    return {
+      ...state,
+      news: action.news
+    };
   } else {
     return state;
   }

@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+<h1 align="center">ManUtd QUIZ</h1>
+<h2 align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img  src="./readme_assets/scr1.png" width="100%"></p>
 
-## Available Scripts
+___
+## Description
 
-In the project directory, you can run:
+**Quiz test**
 
-### `yarn start`
+This is a quiz test to test your knowledge of the history of the Manchester United club.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+___
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to use
+- **Open** the quiz by clicking on the corresponding heading.
+- **Choose** the correct answer and click on the "next" button..
+<p align="center"><img  src="./readme_assets/scr2.png" width="100%"></p>
 
-### `yarn test`
+- **Complete** the test.
+- **After** completing the test, you can look at your mistakes.
+<p align="center"><img  src="./readme_assets/scr3.png" width="100%"></p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+___
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## About the project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Technology stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React (hooks)
+- Redux
+- HTML, CSS, axios and etc, the whole list can be found in **package.json**
 
-### `yarn eject`
+___
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Project setup
+- **Important!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before starting the project, make sure that the port **localhost:3000** is open.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Make** sure you have installed **yarn**.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Run yarn and application on port 3000.
+```
+yarn
+yarn start
+```
 
-## Learn More
+___
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Future scope
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Plans for the distant future 
 
-### Code Splitting
+- Add backend (Node)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- PSQL <> Node <> React
+- Create a common backend with [telegram bot](https://github.com/KirillYashin/MU_Quiz_TGBot "MU Telegram quiz bot")
+a telegram bot.
+- Store questions data not in react, but in hooks.
