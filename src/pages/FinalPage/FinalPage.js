@@ -1,8 +1,10 @@
+import React from "react";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import React from "react";
-import "./FinalPage.css";
+
 import { ErrorPage } from "../ErrorPage/ErrorPage";
+import { ShowMistakes } from "./ShowMistakes";
+import "./FinalPage.css";
 
 
 export const FinalPage = () => {
@@ -32,7 +34,7 @@ export const FinalPage = () => {
     allQuestions.map((question) => {
       if (question.correctAnswer != question.usersAnswer) {
         if (question.usersAnswer == "") {
-          question.usersAnswer = "Вы не выбрали вариант ответа!"
+          question.usersAnswer = "Вы не выбрали вариант ответа!";
         }
         memIncorrectArray.push({
           question: question.question,
@@ -41,7 +43,7 @@ export const FinalPage = () => {
         });
       }
     });
-    setUsersMistakes(memIncorrectArray)
+    setUsersMistakes(memIncorrectArray);
   };
 
   return (
@@ -62,14 +64,14 @@ export const FinalPage = () => {
             <span
               className={"big-font"}
             >
-          {" " + counterOfCorrectAnswers + " "}
-        </span>
+              {" " + counterOfCorrectAnswers + " "}
+            </span>
             из
             <span
               className={"big-font"}
             >
-          {" " + numberOfQuestions + " "}
-        </span>
+              {" " + numberOfQuestions + " "}
+             </span>
             очков.
           </div>
 
@@ -88,44 +90,22 @@ export const FinalPage = () => {
             </div>
           ) : (
             <div>
-
               <div
                 onClick={() => showMistakes()}
                 className={"start-button"}
               >
                 Показать мои ошибки
               </div>
-
               {usersMistakes.map((item, id) => {
                 return (
-                  <div
-                    key={id}
-                    className={"all-mistakes"}
-                  >
-
-                    <div
-                      className={"show-question"}
-                    >
-                      {item.question}
-                    </div>
-                    <div
-                      className={"show-mistake"}
-                    >
-                      {item.usersAns}
-                    </div>
-                    <div
-                      className={"show-answer"}
-                    >
-                      {item.correctAns}
-                    </div>
-
-                  </div>
+                  <ShowMistakes
+                    item={item}
+                    id={id}
+                  />
                 );
               })}
             </div>
           )}
-
-
         </div>
       ) : (
         <div>
@@ -133,5 +113,5 @@ export const FinalPage = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};

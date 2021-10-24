@@ -1,8 +1,10 @@
+import { createStore } from "redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { reducer } from "./reducer/reducer";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { StartQuiz } from "./pages/StartQuiz/StartQuiz";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
 import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
 import { FinalPage } from "./pages/FinalPage/FinalPage";
 import { NavBar } from "./pages/NavBar/NavBar";
@@ -10,29 +12,29 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { AboutProject } from "./pages/AboutProject/AboutProject";
 import { Contacts } from "./pages/Contacts/Contacts";
 import "./App.css";
-import { reducer } from "./reducer/reducer";
 
 
 export const App = () => {
-
   const store = createStore(reducer);
 
   return (
     <div>
-      <div className={"main-background"}>
+      <div
+        className={"main-background"}
+      >
         <Provider
           store={store}
         >
           <BrowserRouter>
-
             <NavBar/>
-
             <Switch>
               <Route
                 path={"/"}
                 exact={true}
               >
-                <div className={"central-div"}>
+                <div
+                  className={"central-div"}
+                >
                   <MainPage/>
                 </div>
               </Route>
@@ -55,8 +57,12 @@ export const App = () => {
                              }
                            }
                          }) => (
-                  <div className={"central-div"}>
-                    <QuestionShow questionsId={questionsId}/>
+                  <div
+                    className={"central-div"}
+                  >
+                    <QuestionShow
+                      questionsId={questionsId}
+                    />
                   </div>
                 )}
               >
@@ -66,7 +72,9 @@ export const App = () => {
                 path={"/final"}
                 exact={true}
               >
-                <div className={"central-div"}>
+                <div
+                  className={"central-div"}
+                >
                   <FinalPage/>
                 </div>
               </Route>
@@ -75,7 +83,9 @@ export const App = () => {
                 path={"/about"}
                 exact={true}
               >
-                <div className={"central-div"}>
+                <div
+                  className={"central-div"}
+                >
                   <AboutProject/>
                 </div>
               </Route>
@@ -84,11 +94,12 @@ export const App = () => {
                 path={"/contacts"}
                 exact={true}
               >
-                <div className={"central-div"}>
+                <div
+                  className={"central-div"}
+                >
                   <Contacts/>
                 </div>
               </Route>
-
             </Switch>
           </BrowserRouter>
         </Provider>

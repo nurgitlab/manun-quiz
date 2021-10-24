@@ -1,36 +1,37 @@
-.start-main-block{
+.start-main-block {
     padding: 20px 30% 0 10%;
-    border: solid blue 2px;
     position: relative;
 }
 
-.start-intro{
+.start-intro {
     font-size: 20px;
     padding: 20px 0 20px 0;
 }
 
 .start-button {
     width: 20%;
-    margin: 10px 0px;
+    margin: 10px 0;
     display: block;
 
-    background: gray;
+    background: #808080;
     font-weight: 700;
     text-decoration: none;
     user-select: none;
     padding: .5em 2em;
-    border: 2px solid gray;
+    border: 2px solid #808080;
     border-radius: 5px;
     transition: 0.2s;
 
     position: relative;
-    color: azure;
+    color: #f0ffff;
     cursor: pointer;
     line-height: 1;
 }
+
 .start-button:hover {
     background: darkslategray;
 }
+
 .start-button:active {
     background: white;
 }

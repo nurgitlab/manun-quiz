@@ -1,7 +1,9 @@
-import myQuestions from "../../db.json";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+
+import myQuestions from "../../db.json";
 import "./StartQuiz.css";
+import { IMPORT_RANDOM_QUESTIONS } from "../../reducer/actions";
 
 
 export const StartQuiz = () => {
@@ -12,7 +14,7 @@ export const StartQuiz = () => {
 
   const goToQuestions = () => {
     dispatch({
-      type: "IMPORT_RANDOM_QUESTIONS",
+      type: IMPORT_RANDOM_QUESTIONS,
       newQuestions: obj,
     });
     history.push('/questions/0');
@@ -22,7 +24,9 @@ export const StartQuiz = () => {
     <div
       className={"start-main-block"}
     >
-      <div className={"start-intro"}>
+      <div
+        className={"start-intro"}
+      >
         <div>
           Итак, вы всё таки решились пройти этот QUIZ.
         </div>

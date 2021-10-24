@@ -2,7 +2,6 @@ import { useHistory } from "react-router";
 
 
 export const ErrorPage = () => {
-
   const history = useHistory();
   const goBackToMain = () => {
     history.push("/");

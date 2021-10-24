@@ -1,6 +1,5 @@
 .final-main-block {
     padding: 20px 30% 0 10%;
-    border: solid blue 2px;
     position: relative;
 }
 
@@ -9,19 +8,19 @@
     padding: 0 0 20px 0;
 }
 
-.show-question{
+.show-question {
     font-size: 25px;
     font-weight: 500;
 }
 
-.show-mistake{
+.show-mistake {
     font-size: 20px;
     font-weight: 600;
     color: #808080;
     text-decoration: #c70101 line-through;
 }
 
-.show-answer{
+.show-answer {
     font-size: 25px;
     font-weight: 600;
 }
@@ -32,7 +31,7 @@
 }
 
 .all-mistakes {
-    border-top: solid 4px gray;
+    border-top: solid 4px #808080;
     margin: 0 0 10px 0;
 }
 
@@ -41,7 +40,7 @@
     margin: 10px 0;
     display: block;
 
-    background: gray;
+    background: #808080;
     font-weight: 700;
     text-decoration: none;
     user-select: none;
@@ -51,7 +50,7 @@
     transition: 0.2s;
 
     position: relative;
-    color: azure;
+    color: #f0ffff;
     cursor: pointer;
     line-height: 1;
 }
@@ -61,7 +60,7 @@
 }
 
 .start-button:active {
-    background: white;
+    background: #f0ffff;
 }
 
 .start-image-block {

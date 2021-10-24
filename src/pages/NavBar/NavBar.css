@@ -37,7 +37,7 @@
     margin-top: 8px;
     height: 3px;
     border-radius: 1px;
-    background-color: azure;
+    background-color: #f0ffff;
     content: "";
     transition: width 0.3s ease-out;
 }

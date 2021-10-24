@@ -1,5 +1,6 @@
-import "./NavBar.css";
 import { useHistory } from "react-router";
+
+import "./NavBar.css";
 
 
 export const NavBar = () => {

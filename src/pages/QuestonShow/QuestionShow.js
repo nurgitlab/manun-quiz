@@ -1,8 +1,10 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import "./QuestionShow.css";
+
 import { ErrorPage } from "../ErrorPage/ErrorPage";
-import React from "react";
+import "./QuestionShow.css";
+import { ADD_ANSWER } from "../../reducer/actions";
 
 
 export const QuestionShow = ({questionsId}) => {
@@ -10,12 +12,7 @@ export const QuestionShow = ({questionsId}) => {
   const dispatch = useDispatch();
 
   const currentQuestions = useSelector(state => state.easyQuestions);
-
   const [usersAnswer, setUsersAnswer] = React.useState("");
-
-  console.log(currentQuestions.length);
-  console.log(currentQuestions);
-  console.log("HERE");
 
   const goToNextQuestion = () => {
     history.push(`/questions/${Number(questionsId) + 1}`);
@@ -28,7 +25,7 @@ export const QuestionShow = ({questionsId}) => {
   const addAnswer = (answer, question, qId) => {
     setUsersAnswer(answer);
     dispatch({
-      type: "ADD_ANSWER",
+      type: ADD_ANSWER,
       usersAnswer: answer,
       questionsId: qId,
       allQuestions: currentQuestions,
@@ -41,7 +38,7 @@ export const QuestionShow = ({questionsId}) => {
 
   return (
     <div>
-      {(currentQuestions.length) !== 0 ?
+      {(currentQuestions.length) !== 0 ? (
         <div
           className={"question-main-block"}
         >
@@ -63,19 +60,21 @@ export const QuestionShow = ({questionsId}) => {
               ПРЕДЫДУЩИЙ ВОПРОС
             </div>
           }
-          {questionsId == (currentQuestions.easyQuestions.length - 1) ?
+          {questionsId == (currentQuestions.easyQuestions.length - 1) ? (
             <div
               className={"quiz-navigation"}
               onClick={goToFinalPage}
             >
               ЗАКОНЧИТЬ ТЕСТ
-            </div> :
+            </div>
+          ) : (
             <div
               className={"quiz-navigation"}
               onClick={goToNextQuestion}
             >
               СЛЕДУЮЩИЙ ВОПРОС
             </div>
+          )
           }
 
           <div
@@ -89,7 +88,9 @@ export const QuestionShow = ({questionsId}) => {
           >
             {currentQuestions.easyQuestions[questionsId].answers.map((answer, id) => {
               return (
-                <div key={id}>
+                <div
+                  key={id}
+                >
                   <div
                     className={"quiz-answer-button"}
                     onClick={() => addAnswer(
@@ -99,7 +100,7 @@ export const QuestionShow = ({questionsId}) => {
                     )
                     }>
                     {currentQuestions.easyQuestions[questionsId].usersAnswer == answer ?
-                      <span>>>>| </span> : <span></span>
+                      (<span>>>>| </span>) : (<span></span>)
                     }
                     {answer}
                   </div>
@@ -125,10 +126,12 @@ export const QuestionShow = ({questionsId}) => {
               </div>
             )}
           </div>
-        </div> :
+        </div>
+      ) : (
         <div>
           <ErrorPage/>
         </div>
+      )
       }
     </div>
   );

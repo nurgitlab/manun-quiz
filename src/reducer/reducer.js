@@ -1,3 +1,11 @@
+import {
+  ADD_ANSWER,
+  ADD_NEWS,
+  IMPORT_ALL_QUESTIONS,
+  IMPORT_RANDOM_QUESTIONS,
+} from "./actions";
+
+
 const defaultState = {
   easyQuestions: [],
   counter: 0,
@@ -5,9 +13,9 @@ const defaultState = {
 };
 
 export const reducer = (state = defaultState, action) => {
-  if (action.type === "IMPORT_ALL_QUESTIONS") {
+  if (action.type === IMPORT_ALL_QUESTIONS) {
     return {...state, easyQuestions: action.newQuestions};
-  } else if (action.type === "IMPORT_RANDOM_QUESTIONS") {
+  } else if (action.type === IMPORT_RANDOM_QUESTIONS) {
     let randomQuestions = [];
     for (let i = 0; i < 10; i++) {
       let randomNum = Math.floor(Math.random() * (action.newQuestions.easyQuestions.length - i)) + i;
@@ -23,7 +31,7 @@ export const reducer = (state = defaultState, action) => {
       randomQuestions.push(mem);
     }
     return {...state, easyQuestions: {easyQuestions: randomQuestions}, counter: 0};
-  } else if (action.type === "ADD_ANSWER") {
+  } else if (action.type === ADD_ANSWER) {
     action.allQuestions.easyQuestions[action.questionsId].usersAnswer = action.usersAnswer;
     let numberOfCorrectQuestions = 0;
     action.allQuestions.easyQuestions.map((question) => {
@@ -32,7 +40,7 @@ export const reducer = (state = defaultState, action) => {
       }
     });
     return {...state, easyQuestions: action.allQuestions, counter: numberOfCorrectQuestions};
-  } else if (action.type == "ADD_NEWS") {
+  } else if (action.type === ADD_NEWS) {
     return {...state, news: action.news};
   } else {
     return state;

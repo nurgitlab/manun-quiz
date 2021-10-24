@@ -1,9 +1,11 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import axios from "axios";
+
 import { ROOT_API } from "../consts";
-import React from "react";
 import "./MainPage.css";
-import { useDispatch, useSelector } from "react-redux";
+import { ADD_NEWS } from "../../reducer/actions";
 
 
 export const MainPage = () => {
@@ -16,14 +18,12 @@ export const MainPage = () => {
     history.push("/questions");
   };
 
-  console.log(storeNews)
-
   const showNews = () => {
     if (storeNews.length === 0) {
       axios.get(ROOT_API)
         .then(response => {
           dispatch({
-            type: "ADD_NEWS",
+            type: ADD_NEWS,
             news: response.data,
           });
         })
@@ -31,7 +31,6 @@ export const MainPage = () => {
           console.error(e.message);
         });
     }
-
   };
 
   React.useEffect(() => {
@@ -61,8 +60,7 @@ export const MainPage = () => {
             Проверь свои знания о Манчестер Юнайтеде!
           </div>
         </div>
-
-        {storeNews.length != 0 ?
+        {storeNews.length != 0 ? (
           storeNews.articles.map((article, id) => {
             return (
               <a
@@ -83,7 +81,8 @@ export const MainPage = () => {
                 </div>
               </a>
             );
-          }) :
+          })
+        ) : (
           <div
             className={"article"}
           >
@@ -93,6 +92,7 @@ export const MainPage = () => {
               Loading...
             </div>
           </div>
+        )
         }
       </div>
     </div>
