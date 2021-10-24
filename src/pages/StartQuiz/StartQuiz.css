@@ -13,32 +13,33 @@
     margin: 10px 0;
     display: block;
 
-    background: gray;
+    background: #808080;
     font-weight: 700;
     text-decoration: none;
     user-select: none;
     padding: .5em 2em;
-    border: 2px solid gray;
+    border: solid 2px #808080;
     border-radius: 5px;
     transition: 0.2s;
 
     position: relative;
-    color: azure;
+    color: #f0ffff;
     cursor: pointer;
     line-height: 1;
 }
 
 .start-button:hover {
-    background: darkslategray;
+    background: #2f4f4f;
 }
 
 .start-button:active {
-    background: white;
+    background: #ffffff;
 }
 
-.start-image-block {
+.start-picture-block {
+    width: 76.7%;
     margin: 40px 0 0 0;
     border-radius: 5px;
-    border: solid 2px #c70101;
     overflow: hidden;
+    border: solid 2px #f0ffff;
 }

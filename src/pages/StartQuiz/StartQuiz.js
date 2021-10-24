@@ -44,7 +44,7 @@ export const StartQuiz = () => {
         Начать тест!
       </div>
       <div
-        className={"start-image-block"}
+        className={"start-picture-block"}
       >
         <img
           width={"100%"}

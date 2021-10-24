@@ -18,7 +18,7 @@
     text-decoration: none;
     user-select: none;
     padding: .5em 2em;
-    border: 2px solid #808080;
+    border: solid 2px #808080;
     border-radius: 5px;
     transition: 0.2s;
 
@@ -29,11 +29,11 @@
 }
 
 .start-button:hover {
-    background: darkslategray;
+    background: #2f4f4f;
 }
 
 .start-button:active {
-    background: white;
+    background: #f0ffff;
 }
 
 .start-image-block {

@@ -113,7 +113,7 @@ export const QuestionShow = ({questionsId}) => {
           >
             {currentQuestions.easyQuestions[questionsId].imageUrl !== "" ? (
               <div
-                className={"start-image-block"}
+                className={"question-image-block"}
               >
                 <img
                   width={"100%"}

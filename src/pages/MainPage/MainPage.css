@@ -37,7 +37,7 @@
     height: 100%;
     position: -webkit-sticky;
     padding: 5px 0 0 5px;
-    background: wheat;
+    background: #f5deb3;
 }
 
 .news-div {
@@ -52,7 +52,7 @@
     position: -webkit-sticky;
     padding: 15px;
     font-weight: 700;
-    color: wheat;
+    color: #f5deb3;
     font-size: 25px;
     background: #c70101;
 }
