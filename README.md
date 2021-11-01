@@ -56,6 +56,5 @@ Plans for the distant future
 - Add backend (Node)
 
 - PSQL <> Node <> React
-- Create a common backend with [telegram bot](https://github.com/KirillYashin/MU_Quiz_TGBot "MU Telegram quiz bot")
-a telegram bot.
+- Create a common backend with a [telegram bot](https://github.com/KirillYashin/MU_Quiz_TGBot "MU Telegram quiz bot").
 - Store questions data not in react, but in hooks.

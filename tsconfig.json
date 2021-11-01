@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "target": "es5",
+=======
+    "target": "es6",
+>>>>>>> 5c804f2fd31bd918b5105b9c33ee3c664700198c
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,7 +22,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+<<<<<<< HEAD
     "jsx": "react-jsx"
+=======
+    "jsx": "react"
+>>>>>>> 5c804f2fd31bd918b5105b9c33ee3c664700198c
   },
   "include": [
     "src"
