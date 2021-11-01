@@ -7,14 +7,10 @@ export interface IBlockQuestions {
 export interface ITypesOfQuestions {
     id?: number
     question?: string
-    answers?: ITypesOfAnswers[]
+    answers?: string[]
     correctAnswer?: string
     usersAnswer?: string
     imageUrl?: string
-}
-
-export interface ITypesOfAnswers {
-    answer: string
 }
 
 export interface IArticle {

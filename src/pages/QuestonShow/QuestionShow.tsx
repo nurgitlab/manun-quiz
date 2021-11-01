@@ -5,7 +5,6 @@ import {useHistory, useParams} from "react-router";
 import {ErrorPage} from "../ErrorPage/ErrorPage";
 import "./QuestionShow.css";
 import {ADD_ANSWER} from "../../reducer/actions";
-import {IBlockQuestions, ITypesOfAnswers} from "../types";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 
@@ -100,7 +99,7 @@ export const QuestionShow: React.FC = () => {
               className={"all-ans-block"}
           >
             {currentQuestions.easyQuestions[Number(params.questionsId)].answers.map((
-                answer: any,
+                answer: string,
                 id: number,
             ) => {
               return (
