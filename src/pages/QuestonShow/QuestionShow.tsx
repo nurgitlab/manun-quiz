@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {useHistory} from "react-router";
+import {useHistory, useParams} from "react-router";
 
 import {ErrorPage} from "../ErrorPage/ErrorPage";
 import "./QuestionShow.css";
@@ -10,11 +10,13 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 
 interface QuestionShowProps {
-  questionsId: number
+  questionsId: string
 }
 
-export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
+export const QuestionShow: React.FC = () => {
   const history = useHistory();
+  const params = useParams<QuestionShowProps>()
+
   const dispatch = useDispatch();
 
   const currentQuestions = useTypedSelector(state => state.easyQuestions)
@@ -25,11 +27,11 @@ export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
   const [usersAnswer, setUsersAnswer] = React.useState("");
 
   const goToNextQuestion = () => {
-    history.push(`/questions/${Number(questionsId) + 1}`);
+    history.push(`/questions/${Number(params.questionsId) + 1}`);
   };
 
   const goToPrevQuestion = () => {
-    history.push(`/questions/${Number(questionsId) - 1}`);
+    history.push(`/questions/${Number(params.questionsId)  - 1}`);
   };
 
   const addAnswer = (
@@ -59,10 +61,10 @@ export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
           <div
             className={"progress"}
           >
-            {Number(questionsId) + 1} | {currentQuestions.easyQuestions.length}
+            {Number(params.questionsId)  + 1} | {currentQuestions.easyQuestions.length}
           </div>
 
-          {questionsId == 0 ?
+          {Number(params.questionsId) === 0 ?
             <div
               className={"quiz-navigation"}
             >ЭТО ПЕРВЫЙ ВОПРОС!
@@ -74,7 +76,7 @@ export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
               ПРЕДЫДУЩИЙ ВОПРОС
             </div>
           }
-          {questionsId == (currentQuestions.easyQuestions.length - 1) ? (
+          {Number(params.questionsId) === (currentQuestions.easyQuestions.length - 1) ? (
             <div
               className={"quiz-navigation"}
               onClick={goToFinalPage}
@@ -94,13 +96,13 @@ export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
           <div
             className={"question"}
           >
-            {currentQuestions.easyQuestions[questionsId].question}
+            {currentQuestions.easyQuestions[Number(params.questionsId)].question}
           </div>
 
           <div
               className={"all-ans-block"}
           >
-            {currentQuestions.easyQuestions[questionsId].answers.map((
+            {currentQuestions.easyQuestions[Number(params.questionsId)].answers.map((
                 answer: any,
                 id: number,
             ) => {
@@ -112,12 +114,12 @@ export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
                         className={"quiz-answer-button"}
                         onClick={() => addAnswer(
                             answer,
-                            currentQuestions.easyQuestions[questionsId],
-                            questionsId,
+                            currentQuestions.easyQuestions[Number(params.questionsId)],
+                            Number(params.questionsId),
                     )
                     }>
-                    {currentQuestions.easyQuestions[questionsId].usersAnswer == answer ?
-                      (<span>HERE</span>) : (<></>)
+                    {currentQuestions.easyQuestions[Number(params.questionsId)].usersAnswer == answer ?
+                      (<span>* | </span>) : (<></>)
                     }
                     {answer}
                   </div>
@@ -128,14 +130,14 @@ export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
           <div
             className={"all-ans-block"}
           >
-            {currentQuestions.easyQuestions[questionsId].imageUrl !== "" ? (
+            {currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl !== "" ? (
               <div
                 className={"question-image-block"}
               >
                 <img
                   width={"100%"}
                   height={"auto"}
-                  src={`${currentQuestions.easyQuestions[questionsId].imageUrl}`}
+                  src={`${currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl}`}
                 />
               </div>
             ) : (

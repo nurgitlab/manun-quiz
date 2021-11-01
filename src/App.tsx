@@ -22,56 +22,41 @@ export const App = () => {
       <div
         className={"main-background"}
       >
-        <Provider
-          store={store}
-        >
+        <Provider store={store}>
           <BrowserRouter>
             <NavBar/>
-            <Switch>
-              <Route
+            <Route
                 path={"/"}
                 exact={true}
-              >
-                <div
+            >
+              <div
                   className={"central-div"}
-                >
-                  <MainPage/>
+              >
+                <MainPage/>
                 </div>
               </Route>
 
-              <Route
+            <Route
                 path={"/questions"}
                 exact={true}
-              >
-                <div className={"central-div"}>
-                  <StartQuiz/>
-                </div>
-              </Route>
+            >
+              <div className={"central-div"}>
+                <StartQuiz/>
+              </div>
+            </Route>
 
-              <Route
-                path={"/questions/:questionsId"}
-                render={({
-                           match: {
-                             params: {
-                               questionsId
-                             }
-                           }
-                         }) => (
-                  <div
-                    className={"central-div"}
-                  >
-                    <QuestionShow
-                      questionsId={questionsId}
-                    />
-                  </div>
-                )}
+            <Route path={"/questions/:questionsId"}>
+              <div
+                  className={"central-div"}
               >
-              </Route>
+                <QuestionShow/>
+              </div>
+            </Route>
 
-              <Route
+            <Route
                 path={"/final"}
                 exact={true}
-              >
+            >
                 <div
                   className={"central-div"}
                 >
@@ -100,7 +85,6 @@ export const App = () => {
                   <Contacts/>
                 </div>
               </Route>
-            </Switch>
           </BrowserRouter>
         </Provider>
       </div>
