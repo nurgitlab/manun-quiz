@@ -19,9 +19,7 @@ export const App = () => {
 
   return (
     <div>
-      <div
-        className={"main-background"}
-      >
+      <div className={"main-background"}>
         <Provider store={store}>
           <BrowserRouter>
             <NavBar/>

@@ -21,9 +21,6 @@ export const QuestionShow: React.FC = () => {
 
   const currentQuestions = useTypedSelector(state => state.easyQuestions)
 
-  // const currentQuestions = useSelector<IBlockQuestions>(
-  //     state => state.easyQuestions
-  // );
   const [usersAnswer, setUsersAnswer] = React.useState("");
 
   const goToNextQuestion = () => {
@@ -116,13 +113,13 @@ export const QuestionShow: React.FC = () => {
                             answer,
                             currentQuestions.easyQuestions[Number(params.questionsId)],
                             Number(params.questionsId),
-                    )
-                    }>
-                    {currentQuestions.easyQuestions[Number(params.questionsId)].usersAnswer == answer ?
-                      (<span>* | </span>) : (<></>)
-                    }
-                    {answer}
-                  </div>
+                        )
+                        }>
+                      {currentQuestions.easyQuestions[Number(params.questionsId)].usersAnswer === answer ?
+                          (<span>* | </span>) : (<></>)
+                      }
+                      {answer}
+                    </div>
                 </div>
               );
             })}
@@ -141,8 +138,8 @@ export const QuestionShow: React.FC = () => {
                 />
               </div>
             ) : (
-              <div>
-              </div>
+                <>
+                </>
             )}
           </div>
         </div>
