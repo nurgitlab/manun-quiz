@@ -1,17 +1,27 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
+import {useDispatch, useSelector} from "react-redux";
+import {useHistory} from "react-router";
 
-import { ErrorPage } from "../ErrorPage/ErrorPage";
+import {ErrorPage} from "../ErrorPage/ErrorPage";
 import "./QuestionShow.css";
-import { ADD_ANSWER } from "../../reducer/actions";
+import {ADD_ANSWER} from "../../reducer/actions";
+import {IBlockQuestions, ITypesOfAnswers} from "../types";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 
-export const QuestionShow = ({questionsId}) => {
+interface QuestionShowProps {
+  questionsId: number
+}
+
+export const QuestionShow: React.FC<QuestionShowProps> = ({questionsId}) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const currentQuestions = useSelector(state => state.easyQuestions);
+  const currentQuestions = useTypedSelector(state => state.easyQuestions)
+
+  // const currentQuestions = useSelector<IBlockQuestions>(
+  //     state => state.easyQuestions
+  // );
   const [usersAnswer, setUsersAnswer] = React.useState("");
 
   const goToNextQuestion = () => {
@@ -22,7 +32,11 @@ export const QuestionShow = ({questionsId}) => {
     history.push(`/questions/${Number(questionsId) - 1}`);
   };
 
-  const addAnswer = (answer, question, qId) => {
+  const addAnswer = (
+      answer: string,
+      question: string,
+      qId: number,
+  ) => {
     setUsersAnswer(answer);
     dispatch({
       type: ADD_ANSWER,
@@ -84,23 +98,26 @@ export const QuestionShow = ({questionsId}) => {
           </div>
 
           <div
-            className={"all-ans-block"}
+              className={"all-ans-block"}
           >
-            {currentQuestions.easyQuestions[questionsId].answers.map((answer, id) => {
+            {currentQuestions.easyQuestions[questionsId].answers.map((
+                answer: any,
+                id: number,
+            ) => {
               return (
-                <div
-                  key={id}
-                >
                   <div
-                    className={"quiz-answer-button"}
-                    onClick={() => addAnswer(
-                      answer,
-                      currentQuestions.easyQuestions[questionsId],
-                      questionsId,
+                      key={id}
+                  >
+                    <div
+                        className={"quiz-answer-button"}
+                        onClick={() => addAnswer(
+                            answer,
+                            currentQuestions.easyQuestions[questionsId],
+                            questionsId,
                     )
                     }>
                     {currentQuestions.easyQuestions[questionsId].usersAnswer == answer ?
-                      (<span>>>>| </span>) : (<span></span>)
+                      (<span>HERE</span>) : (<></>)
                     }
                     {answer}
                   </div>

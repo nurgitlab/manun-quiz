@@ -4,6 +4,7 @@ import {
   IMPORT_ALL_QUESTIONS,
   IMPORT_RANDOM_QUESTIONS,
 } from "./actions";
+import {ITypesOfQuestions} from "../pages/types";
 
 
 const defaultState = {
@@ -12,7 +13,7 @@ const defaultState = {
   news: [],
 };
 
-export const reducer = (state = defaultState, action) => {
+export const reducer = (state = defaultState, action: any) => {
   if (action.type === IMPORT_ALL_QUESTIONS) {
     return {...state, easyQuestions: action.newQuestions};
   } else if (action.type === IMPORT_RANDOM_QUESTIONS) {
@@ -39,7 +40,7 @@ export const reducer = (state = defaultState, action) => {
   } else if (action.type === ADD_ANSWER) {
     action.allQuestions.easyQuestions[action.questionsId].usersAnswer = action.usersAnswer;
     let numberOfCorrectQuestions = 0;
-    action.allQuestions.easyQuestions.map((question) => {
+    action.allQuestions.easyQuestions.map((question: ITypesOfQuestions) => {
       if (question.correctAnswer == question.usersAnswer) {
         numberOfCorrectQuestions++;
       }
@@ -58,3 +59,5 @@ export const reducer = (state = defaultState, action) => {
     return state;
   }
 };
+
+export type ReducerTypes = ReturnType<typeof reducer>
