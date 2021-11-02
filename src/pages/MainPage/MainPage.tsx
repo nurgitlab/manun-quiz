@@ -1,5 +1,5 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useHistory} from "react-router";
 import axios from "axios";
 
@@ -41,24 +41,18 @@ export const MainPage: React.FC = () => {
 
     return (
         <div>
-            <div
-                className={"news-div"}
-            >
+            <div className={"news-div"}>
                 <div
                     className={"article"}
                     onClick={goToQuestions}
                 >
-                    <div
-                        className={"article-image"}
-                    >
+                    <div className={"article-image"}>
                         <img
                             src={`https://specializedfortworth.com/wp-content/uploads/2017/02/property-management-Arlington-1500x998.jpg`}
                             width={"100%"}
                         />
                     </div>
-                    <div
-                        className={"big-title"}
-                    >
+                    <div className={"big-title"}>
                         Проверь свои знания о Манчестер Юнайтеде!
                     </div>
                 </div>
@@ -73,28 +67,21 @@ export const MainPage: React.FC = () => {
                                 className={"article"}
                                 href={`${article.url}`}
                             >
-                                {console.log(article)}
                                 <div className={"article-image"}>
                                     <img
                                         src={`${article.urlToImage}`}
                                         width={"100%"}
                                     />
                                 </div>
-                                <div
-                                    className={"article-title"}
-                                >
+                                <div className={"article-title"}>
                                     {article.description}
                                 </div>
                             </a>
                         );
                     })
                 ) : (
-                    <div
-                        className={"article"}
-                    >
-                        <div
-                            className={"article-title"}
-                        >
+                    <div className={"article"}>
+                        <div className={"article-title"}>
                             Loading...
                         </div>
                     </div>

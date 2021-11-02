@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route} from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { reducer } from "./reducer/reducer";
@@ -8,7 +8,6 @@ import { StartQuiz } from "./pages/StartQuiz/StartQuiz";
 import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
 import { FinalPage } from "./pages/FinalPage/FinalPage";
 import { NavBar } from "./pages/NavBar/NavBar";
-import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { AboutProject } from "./pages/AboutProject/AboutProject";
 import { Contacts } from "./pages/Contacts/Contacts";
 import "./App.css";

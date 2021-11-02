@@ -8,8 +8,8 @@ export interface ITypesOfQuestions {
     id?: number
     question?: string
     answers?: string[]
-    correctAnswer?: string
-    usersAnswer?: string
+    correctAnswer: string
+    usersAnswer: string
     imageUrl?: string
 }
 

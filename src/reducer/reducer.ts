@@ -41,7 +41,7 @@ export const reducer = (state = defaultState, action: any) => {
     action.allQuestions.easyQuestions[action.questionsId].usersAnswer = action.usersAnswer;
     let numberOfCorrectQuestions = 0;
     action.allQuestions.easyQuestions.map((question: ITypesOfQuestions) => {
-      if (question.correctAnswer == question.usersAnswer) {
+      if (question.correctAnswer === question.usersAnswer) {
         numberOfCorrectQuestions++;
       }
     });
