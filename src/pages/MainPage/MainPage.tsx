@@ -7,14 +7,14 @@ import {ROOT_API} from "../consts";
 import "./MainPage.css";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {IArticle} from "../types";
-import {NewsActionTypes} from "../../reducer/todo";
+import {NewsActionTypes} from "../../store/reducers/todo";
 
 
 export const MainPage: React.FC = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const storeNews = useTypedSelector(state => state.news);
+    const storeNews = useTypedSelector(state => state.questions.news);
 
     const goToQuestions = () => {
         history.push("/questions");

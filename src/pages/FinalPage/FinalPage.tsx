@@ -13,8 +13,8 @@ export const FinalPage: React.FC = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const counterOfCorrectAnswers = useTypedSelector(state => state.counter);
-    const allQuestions = useTypedSelector(state => state.easyQuestions.easyQuestions);
+    const counterOfCorrectAnswers = useTypedSelector(state => state.questions.counter);
+    const allQuestions = useTypedSelector(state => state.questions.easyQuestions.easyQuestions);
 
     let numberOfQuestions;
 

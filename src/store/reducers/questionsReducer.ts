@@ -1,4 +1,4 @@
-import {ITypesOfQuestions} from "../pages/types";
+import {ITypesOfQuestions} from "../../pages/types";
 import {NewsActionTypes, QuestionsActionTypes} from "./todo";
 
 
@@ -8,7 +8,7 @@ const defaultState = {
   news: [],
 };
 
-export const reducer = (state = defaultState, action: any) => {
+export const questionsReducer = (state = defaultState, action: any) => {
   switch (action.type) {
 
     case QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS: {
@@ -62,4 +62,4 @@ export const reducer = (state = defaultState, action: any) => {
   }
 };
 
-export type ReducerTypes = ReturnType<typeof reducer>
+export type ReducerTypes = ReturnType<typeof questionsReducer>

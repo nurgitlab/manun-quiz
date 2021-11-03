@@ -1,4 +1,4 @@
-import {IAllQuestions, IArticle} from "../pages/types";
+import {IAllQuestions, IArticle} from "../../pages/types";
 
 export enum QuestionsActionTypes {
     IMPORT_RANDOM_QUESTIONS = "IMPORT_RANDOM_QUESTIONS",
