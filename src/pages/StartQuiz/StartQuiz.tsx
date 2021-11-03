@@ -1,21 +1,23 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useHistory} from "react-router";
 
 import myQuestions from "../../db.json";
 import "./StartQuiz.css";
-import {IMPORT_RANDOM_QUESTIONS} from "../../reducer/actions";
+import {IAllQuestions} from "../types";
+import {QuestionsActionTypes} from "../../reducer/todo";
 
 
 export const StartQuiz: React.FC = () => {
     const history = useHistory();
-    const obj = myQuestions;
+
+    const obj: IAllQuestions = myQuestions;
 
     const dispatch = useDispatch();
 
     const goToQuestions = () => {
         dispatch({
-            type: IMPORT_RANDOM_QUESTIONS,
+            type: QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS,
             newQuestions: obj,
         });
         history.push('/questions/0');

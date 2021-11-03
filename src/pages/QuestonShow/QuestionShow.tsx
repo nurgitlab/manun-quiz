@@ -4,8 +4,8 @@ import {useHistory, useParams} from "react-router";
 
 import {ErrorPage} from "../ErrorPage/ErrorPage";
 import "./QuestionShow.css";
-import {ADD_ANSWER} from "../../reducer/actions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {QuestionsActionTypes} from "../../reducer/todo";
 
 
 interface QuestionShowProps {
@@ -18,7 +18,7 @@ export const QuestionShow: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  const currentQuestions = useTypedSelector(state => state.easyQuestions)
+  const currentQuestions: any = useTypedSelector(state => state.easyQuestions)
 
   const [usersAnswer, setUsersAnswer] = React.useState("");
 
@@ -37,7 +37,7 @@ export const QuestionShow: React.FC = () => {
   ) => {
     setUsersAnswer(answer);
     dispatch({
-      type: ADD_ANSWER,
+      type: QuestionsActionTypes.ADD_ANSWER,
       usersAnswer: answer,
       questionsId: qId,
       allQuestions: currentQuestions,

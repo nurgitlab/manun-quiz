@@ -1,7 +1,5 @@
-export interface IBlockQuestions {
+export interface IAllQuestions {
     easyQuestions: ITypesOfQuestions[]
-    counter: number
-    news: IArticle[]
 }
 
 export interface ITypesOfQuestions {

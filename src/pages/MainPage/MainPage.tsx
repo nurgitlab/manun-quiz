@@ -5,9 +5,9 @@ import axios from "axios";
 
 import {ROOT_API} from "../consts";
 import "./MainPage.css";
-import {ADD_NEWS} from "../../reducer/actions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {IArticle} from "../types";
+import {NewsActionTypes} from "../../reducer/todo";
 
 
 export const MainPage: React.FC = () => {
@@ -25,7 +25,7 @@ export const MainPage: React.FC = () => {
             axios.get(ROOT_API)
                 .then(response => {
                     dispatch({
-                        type: ADD_NEWS,
+                        type: NewsActionTypes.ADD_NEWS,
                         news: response.data,
                     });
                 })
