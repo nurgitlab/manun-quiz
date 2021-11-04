@@ -1,4 +1,4 @@
-import {NewsAction, NewsActionTypes} from "./todo";
+import {NewsAction, NewsActionTypes} from "./typesNewsReducer";
 import {IFullArticles} from "../../pages/types";
 
 

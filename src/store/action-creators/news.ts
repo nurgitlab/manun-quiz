@@ -1,4 +1,4 @@
-import {NewsAction, NewsActionTypes} from "../reducers/todo";
+import {NewsAction, NewsActionTypes} from "../reducers/typesNewsReducer";
 import {Dispatch} from "redux";
 import axios from "axios";
 import {ROOT_API} from "../../pages/consts";

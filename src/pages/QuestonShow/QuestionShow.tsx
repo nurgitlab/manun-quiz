@@ -5,7 +5,7 @@ import {useHistory, useParams} from "react-router";
 import {ErrorPage} from "../ErrorPage/ErrorPage";
 import "./QuestionShow.css";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {QuestionsActionTypes} from "../../store/reducers/todo";
+import {QuestionsActionTypes} from "../../store/reducers/typesNewsReducer";
 import {IAllQuestions, ITypesOfQuestions} from "../types";
 
 

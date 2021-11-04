@@ -1,5 +1,5 @@
-import {IAllQuestions, IArticle, IArticleSource, IFullArticles, ITypesOfQuestions} from "../../pages/types";
-import {NewsActionTypes, QuestionsAction, QuestionsActionTypes} from "./todo";
+import {IAllQuestions, ITypesOfQuestions} from "../../pages/types";
+import {QuestionsAction, QuestionsActionTypes} from "./typesNewsReducer";
 
 
 interface typedInitialState {

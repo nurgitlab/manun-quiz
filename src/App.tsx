@@ -1,15 +1,16 @@
-import { BrowserRouter, Route} from "react-router-dom";
-import { Provider } from "react-redux";
+import {BrowserRouter, Route} from "react-router-dom";
+import {Provider} from "react-redux";
 
 import {MainPage} from "./pages/MainPage/MainPage";
-import { StartQuiz } from "./pages/StartQuiz/StartQuiz";
-import { QuestionShow } from "./pages/QuestonShow/QuestionShow";
-import { FinalPage } from "./pages/FinalPage/FinalPage";
-import { NavBar } from "./pages/NavBar/NavBar";
-import { AboutProject } from "./pages/AboutProject/AboutProject";
-import { Contacts } from "./pages/Contacts/Contacts";
+import {StartQuiz} from "./pages/StartQuiz/StartQuiz";
+import {QuestionShow} from "./pages/QuestonShow/QuestionShow";
+import {FinalPage} from "./pages/FinalPage/FinalPage";
+import {NavBar} from "./pages/NavBar/NavBar";
+import {AboutProject} from "./pages/AboutProject/AboutProject";
+import {Contacts} from "./pages/Contacts/Contacts";
 import {store} from "./store";
 import "./App.css";
+
 
 export const App = () => {
     return (

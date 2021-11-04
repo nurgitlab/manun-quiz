@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router";
+import {useHistory} from "react-router";
 
 
 export const ErrorPage: React.FC = () => {
@@ -9,9 +9,7 @@ export const ErrorPage: React.FC = () => {
     };
 
     return (
-        <div
-            className={"start-main-block"}
-        >
+        <div className={"start-main-block"}>
             <div>
                 <img
                     width={"100%"}
