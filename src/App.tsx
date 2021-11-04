@@ -21,7 +21,7 @@ export const App = () => {
                         <NavBar/>
                         <Route
                             path={"/"}
-                            exact={true}
+                            exact
                         >
                             <div className={"central-div"}>
                                 <MainPage/>
@@ -30,7 +30,7 @@ export const App = () => {
 
                         <Route
                             path={"/questions"}
-                            exact={true}
+                            exact
                         >
                             <div className={"central-div"}>
                                 <StartQuiz/>
@@ -45,7 +45,7 @@ export const App = () => {
 
                         <Route
                             path={"/final"}
-                            exact={true}
+                            exact
                         >
                             <div className={"central-div"}>
                                 <FinalPage/>
@@ -54,7 +54,7 @@ export const App = () => {
 
                         <Route
                             path={"/about"}
-                            exact={true}
+                            exact
                         >
                             <div className={"central-div"}>
                                 <AboutProject/>
@@ -63,7 +63,7 @@ export const App = () => {
 
                         <Route
                             path={"/contacts"}
-                            exact={true}
+                            exact
                         >
                             <div className={"central-div"}>
                                 <Contacts/>

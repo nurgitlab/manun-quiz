@@ -1,5 +1,6 @@
-import {IAllQuestions, ITypesOfQuestions} from "../../pages/types";
+import {IAllQuestions, ITypesOfQuestions} from "../../../pages/types";
 import {QuestionsAction, QuestionsActionTypes} from "./typesQuestionsReducer";
+import {numberOfAnswers, numberOfQuestions} from "./consts";
 
 
 interface typedInitialState {
@@ -18,23 +19,23 @@ export const questionsReducer = (state = initialState, action: QuestionsAction):
     case QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS: {
 
       let randomQuestions = [];
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < numberOfQuestions; i++) {
         let listOfQuestions: ITypesOfQuestions[] = action.newQuestions.easyQuestions;
         let randomNum = Math.floor(Math.random() * (listOfQuestions.length - i)) + i;
-        let mem = listOfQuestions[randomNum];
+        let swapQuestion = listOfQuestions[randomNum];
         listOfQuestions[randomNum] = listOfQuestions[i];
-        listOfQuestions[i] = mem;
+        listOfQuestions[i] = swapQuestion;
 
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < numberOfAnswers; j++) {
           let randomAnswer = Math.floor(Math.random() * listOfQuestions[i].answers.length - j) + j;
           let memAnswer = listOfQuestions[i].answers[randomAnswer];
           listOfQuestions[i].answers[randomAnswer] = listOfQuestions[i].answers[j];
           listOfQuestions[i].answers[j] = memAnswer;
         }
 
-        mem.usersAnswer = ""
+        swapQuestion.usersAnswer = ""
 
-        randomQuestions.push(mem);
+        randomQuestions.push(swapQuestion);
       }
 
       return {

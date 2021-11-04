@@ -1,4 +1,4 @@
-import {IAllQuestions} from "../../pages/types";
+import {IAllQuestions} from "../../../pages/types";
 
 
 export enum QuestionsActionTypes {

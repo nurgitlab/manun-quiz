@@ -1,5 +1,5 @@
 import {NewsAction, NewsActionTypes} from "./typesNewsReducer";
-import {IFullArticles} from "../../pages/types";
+import {IFullArticles} from "../../../pages/types";
 
 
 interface typedInitialState {

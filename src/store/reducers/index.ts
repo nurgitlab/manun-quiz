@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
-import {questionsReducer} from "./questionsReducer";
-import {newsReducer} from "./newsReducer";
+import {questionsReducer} from "./questions/questionsReducer";
+import {newsReducer} from "./news/newsReducer";
 
 
 export const rootReducer = combineReducers({

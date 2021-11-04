@@ -1,4 +1,4 @@
-import {IFullArticles} from "../../pages/types";
+import {IFullArticles} from "../../../pages/types";
 
 
 export enum NewsActionTypes {

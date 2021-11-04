@@ -5,7 +5,7 @@ import {useHistory} from "react-router";
 import myQuestions from "../../db.json";
 import "./StartQuiz.css";
 import {IAllQuestions} from "../types";
-import {QuestionsActionTypes} from "../../store/reducers/typesQuestionsReducer";
+import {QuestionsActionTypes} from "../../store/reducers/questions/typesQuestionsReducer";
 
 
 export const StartQuiz: React.FC = () => {
