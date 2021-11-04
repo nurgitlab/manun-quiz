@@ -20,6 +20,7 @@ export const StartQuiz: React.FC = () => {
             type: QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS,
             newQuestions: obj,
         });
+
         history.push('/questions/0');
     };
 

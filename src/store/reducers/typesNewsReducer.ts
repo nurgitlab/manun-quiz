@@ -6,12 +6,6 @@ export enum QuestionsActionTypes {
     ADD_ANSWER = "ADD_ANSWER",
 }
 
-export enum NewsActionTypes {
-    FETCH_NEWS = "FETCH_NEWS",
-    FETCH_NEWS_SUCCESS = "FETCH_NEWS_SUCCESS",
-    FETCH_NEWS_ERROR = "FETCH_NEWS_ERROR"
-}
-
 interface ImportRandomQuestionsAction {
     type: QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS
     newQuestions: IAllQuestions
@@ -22,6 +16,12 @@ interface AddAnswerAction {
     usersAnswer: string
     questionsId: number
     allQuestions: IAllQuestions
+}
+
+export enum NewsActionTypes {
+    FETCH_NEWS = "FETCH_NEWS",
+    FETCH_NEWS_SUCCESS = "FETCH_NEWS_SUCCESS",
+    FETCH_NEWS_ERROR = "FETCH_NEWS_ERROR"
 }
 
 interface FetchNewsAction {

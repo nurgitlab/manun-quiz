@@ -16,6 +16,7 @@ export const questionsReducer = (state = initialState, action: QuestionsAction):
   switch (action.type) {
 
     case QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS: {
+
       let randomQuestions = [];
       for (let i = 0; i < 5; i++) {
         let listOfQuestions: ITypesOfQuestions[] = action.newQuestions.easyQuestions;
@@ -23,14 +24,19 @@ export const questionsReducer = (state = initialState, action: QuestionsAction):
         let mem = listOfQuestions[randomNum];
         listOfQuestions[randomNum] = listOfQuestions[i];
         listOfQuestions[i] = mem;
+
         for (let j = 0; j < 4; j++) {
           let randomAnswer = Math.floor(Math.random() * listOfQuestions[i].answers.length - j) + j;
           let memAnswer = listOfQuestions[i].answers[randomAnswer];
           listOfQuestions[i].answers[randomAnswer] = listOfQuestions[i].answers[j];
           listOfQuestions[i].answers[j] = memAnswer;
         }
+
+        mem.usersAnswer = ""
+
         randomQuestions.push(mem);
       }
+
       return {
         ...state,
         easyQuestions: {easyQuestions: randomQuestions},
@@ -41,7 +47,7 @@ export const questionsReducer = (state = initialState, action: QuestionsAction):
     case QuestionsActionTypes.ADD_ANSWER: {
       action.allQuestions.easyQuestions[action.questionsId].usersAnswer = action.usersAnswer;
       let numberOfCorrectQuestions = 0;
-      action.allQuestions.easyQuestions.map((question: ITypesOfQuestions) => {
+      action.allQuestions.easyQuestions.map((question) => {
         if (question.correctAnswer === question.usersAnswer) {
           numberOfCorrectQuestions++;
         }

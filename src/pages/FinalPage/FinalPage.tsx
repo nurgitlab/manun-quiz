@@ -11,6 +11,11 @@ import {ITypesOfQuestions} from "../types";
 
 export const FinalPage: React.FC = () => {
     const history = useHistory();
+
+    const goBackToMain = () => {
+        history.push("/");
+    };
+
     const dispatch = useDispatch();
 
     const counterOfCorrectAnswers = useTypedSelector(state => state.questions.counter);
@@ -26,14 +31,10 @@ export const FinalPage: React.FC = () => {
 
     const [usersMistakes, setUsersMistakes] = React.useState<ITypesOfQuestions[]>([]);
 
-    const goBackToMain = () => {
-        history.push("/");
-    };
-
     const showMistakes = () => {
         setUsersMistakes([]);
         let memIncorrectArray: ITypesOfQuestions[] = [];
-        allQuestions.map((question: ITypesOfQuestions) => {
+        allQuestions.map((question) => {
             if (question.correctAnswer !== question.usersAnswer) {
                 if (question.usersAnswer === "") {
                     question.usersAnswer = "Вы не выбрали вариант ответа!";

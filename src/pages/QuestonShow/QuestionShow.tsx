@@ -31,6 +31,10 @@ export const QuestionShow: React.FC = () => {
     history.push(`/questions/${Number(params.questionsId)  - 1}`);
   };
 
+  const goToFinalPage = () => {
+    history.push(`/final`);
+  };
+
   const addAnswer = (
       answer: string,
       question: ITypesOfQuestions,
@@ -43,10 +47,6 @@ export const QuestionShow: React.FC = () => {
       questionsId: qId,
       allQuestions: currentQuestions,
     });
-  };
-
-  const goToFinalPage = () => {
-    history.push(`/final`);
   };
 
   return (
