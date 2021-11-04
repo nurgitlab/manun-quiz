@@ -6,7 +6,7 @@ import axios from "axios";
 import {ROOT_API} from "../consts";
 import "./MainPage.css";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {IArticle} from "../types";
+import {IArticle, IFullArticles} from "../types";
 import {NewsActionTypes} from "../../store/reducers/todo";
 
 
@@ -21,8 +21,8 @@ export const MainPage: React.FC = () => {
     };
 
     const showNews = () => {
-        if (storeNews.length === 0) {
-            axios.get(ROOT_API)
+        if (storeNews.articles.length === 0) {
+            axios.get<IFullArticles>(ROOT_API)
                 .then(response => {
                     dispatch({
                         type: NewsActionTypes.ADD_NEWS,
@@ -56,7 +56,7 @@ export const MainPage: React.FC = () => {
                         Проверь свои знания о Манчестер Юнайтеде!
                     </div>
                 </div>
-                {storeNews.length !== 0 ? (
+                {(storeNews.articles.length !== 0) ? (
                     storeNews.articles.map((
                         article: IArticle,
                         id: number
@@ -85,8 +85,7 @@ export const MainPage: React.FC = () => {
                             Loading...
                         </div>
                     </div>
-                )
-                }
+                )}
             </div>
         </div>
     );

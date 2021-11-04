@@ -1,14 +1,24 @@
-import {ITypesOfQuestions} from "../../pages/types";
-import {NewsActionTypes, QuestionsActionTypes} from "./todo";
+import {IAllQuestions, IArticle, IArticleSource, IFullArticles, ITypesOfQuestions} from "../../pages/types";
+import {NewsActionTypes, QAction, QuestionsActionTypes} from "./todo";
 
 
-const defaultState = {
-  easyQuestions: [],
+interface typedInitialState {
+  easyQuestions: IAllQuestions,
+  counter: number,
+  news: IFullArticles,
+}
+
+const initialState: typedInitialState = {
+  easyQuestions: {easyQuestions: []},
   counter: 0,
-  news: [],
+  news: {
+    status: "",
+    totalResults: 0,
+    articles: []
+  },
 };
 
-export const questionsReducer = (state = defaultState, action: any) => {
+export const questionsReducer = (state = initialState, action: QAction): typedInitialState => {
   switch (action.type) {
 
     case QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS: {
@@ -61,5 +71,3 @@ export const questionsReducer = (state = defaultState, action: any) => {
     }
   }
 };
-
-export type ReducerTypes = ReturnType<typeof questionsReducer>

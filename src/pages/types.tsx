@@ -11,18 +11,24 @@ export interface ITypesOfQuestions {
     imageUrl?: string
 }
 
+export interface IFullArticles {
+    status: string,
+    totalResults: number,
+    articles: IArticle[]
+}
+
 export interface IArticle {
-    author: string
-    content: string
-    description: string
-    publishedAt: string
     source: IArticleSource
+    author: string | null
     title: string
+    description: string
     url: string
     urlToImage: string
+    publishedAt: string
+    content: string
 }
 
 export interface IArticleSource {
-    id: string
+    id: string | null | number
     name: string
 }

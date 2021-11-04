@@ -1,4 +1,3 @@
-import { createStore } from "redux";
 import { BrowserRouter, Route} from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -9,14 +8,10 @@ import { FinalPage } from "./pages/FinalPage/FinalPage";
 import { NavBar } from "./pages/NavBar/NavBar";
 import { AboutProject } from "./pages/AboutProject/AboutProject";
 import { Contacts } from "./pages/Contacts/Contacts";
-import {questionsReducer} from "./store/reducers/questionsReducer";
-import "./App.css";
 import {store} from "./store";
-
+import "./App.css";
 
 export const App = () => {
-
-
     return (
         <div>
             <div className={"main-background"}>
@@ -27,9 +22,7 @@ export const App = () => {
                             path={"/"}
                             exact={true}
                         >
-                            <div
-                                className={"central-div"}
-                            >
+                            <div className={"central-div"}>
                                 <MainPage/>
                             </div>
                         </Route>
@@ -44,9 +37,7 @@ export const App = () => {
                         </Route>
 
                         <Route path={"/questions/:questionsId"}>
-                            <div
-                                className={"central-div"}
-                            >
+                            <div className={"central-div"}>
                                 <QuestionShow/>
                             </div>
                         </Route>
@@ -55,9 +46,7 @@ export const App = () => {
                             path={"/final"}
                             exact={true}
                         >
-                            <div
-                                className={"central-div"}
-                            >
+                            <div className={"central-div"}>
                                 <FinalPage/>
                             </div>
                         </Route>
@@ -66,9 +55,7 @@ export const App = () => {
                             path={"/about"}
                             exact={true}
                         >
-                            <div
-                                className={"central-div"}
-                            >
+                            <div className={"central-div"}>
                                 <AboutProject/>
                             </div>
                         </Route>
@@ -77,9 +64,7 @@ export const App = () => {
                             path={"/contacts"}
                             exact={true}
                         >
-                            <div
-                                className={"central-div"}
-                            >
+                            <div className={"central-div"}>
                                 <Contacts/>
                             </div>
                         </Route>

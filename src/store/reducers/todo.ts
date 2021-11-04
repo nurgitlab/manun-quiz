@@ -1,4 +1,4 @@
-import {IAllQuestions, IArticle} from "../../pages/types";
+import {IAllQuestions, IArticle, IFullArticles} from "../../pages/types";
 
 export enum QuestionsActionTypes {
     IMPORT_RANDOM_QUESTIONS = "IMPORT_RANDOM_QUESTIONS",
@@ -23,7 +23,7 @@ interface AddAnswerAction {
 
 interface AddNewsAction {
     type: NewsActionTypes.ADD_NEWS
-    news: IArticle[]
+    news: IFullArticles
 }
 
 export type QAction = AddNewsAction | AddAnswerAction | ImportRandomQuestionsAction

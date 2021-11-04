@@ -51,103 +51,89 @@ export const QuestionShow: React.FC = () => {
   return (
     <div>
       {(currentQuestions.length) !== 0 ? (
-        <div
-          className={"question-main-block"}
-        >
-          <div
-            className={"progress"}
-          >
-            {Number(params.questionsId)  + 1} | {currentQuestions.easyQuestions.length}
-          </div>
-
-          {Number(params.questionsId) === 0 ?
-            <div
-              className={"quiz-navigation"}
-            >ЭТО ПЕРВЫЙ ВОПРОС!
-            </div> :
-            <div
-              className={"quiz-navigation"}
-              onClick={goToPrevQuestion}
-            >
-              ПРЕДЫДУЩИЙ ВОПРОС
+          <div className={"question-main-block"}>
+            <div className={"progress"}>
+              {Number(params.questionsId) + 1} | {currentQuestions.easyQuestions.length}
             </div>
-          }
-          {Number(params.questionsId) === (currentQuestions.easyQuestions.length - 1) ? (
-            <div
-              className={"quiz-navigation"}
-              onClick={goToFinalPage}
-            >
-              ЗАКОНЧИТЬ ТЕСТ
-            </div>
-          ) : (
-            <div
-              className={"quiz-navigation"}
-              onClick={goToNextQuestion}
-            >
-              СЛЕДУЮЩИЙ ВОПРОС
-            </div>
-          )
-          }
 
-          <div
-            className={"question"}
-          >
-            {currentQuestions.easyQuestions[Number(params.questionsId)].question}
-          </div>
-
-          <div
-              className={"all-ans-block"}
-          >
-            {currentQuestions.easyQuestions[Number(params.questionsId)].answers.map((
-                answer: string,
-                id: number,
-            ) => {
-              return (
-                  <div
-                      key={id}
-                  >
-                    <div
-                        className={"quiz-answer-button"}
-                        onClick={() => addAnswer(
-                            answer,
-                            currentQuestions.easyQuestions[Number(params.questionsId)],
-                            Number(params.questionsId),
-                        )
-                        }>
-                      {currentQuestions.easyQuestions[Number(params.questionsId)].usersAnswer === answer ?
-                          (<span>* | </span>) : (<></>)
-                      }
-                      {answer}
-                    </div>
+            {Number(params.questionsId) === 0 ? (
+                <div className={"quiz-navigation"}>
+                  ЭТО ПЕРВЫЙ ВОПРОС!
                 </div>
-              );
-            })}
-          </div>
-          <div
-            className={"all-ans-block"}
-          >
-            {currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl !== "" ? (
-              <div
-                className={"question-image-block"}
-              >
-                <img
-                  width={"100%"}
-                  height={"auto"}
-                  src={`${currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl}`}
-                />
-              </div>
             ) : (
-                <>
-                </>
+                <div
+                    className={"quiz-navigation"}
+                    onClick={goToPrevQuestion}
+                >
+                  ПРЕДЫДУЩИЙ ВОПРОС
+                </div>
             )}
+
+            {Number(params.questionsId) === (currentQuestions.easyQuestions.length - 1) ? (
+                <div
+                    className={"quiz-navigation"}
+                    onClick={goToFinalPage}
+                >
+                  ЗАКОНЧИТЬ ТЕСТ
+                </div>
+            ) : (
+                <div
+                    className={"quiz-navigation"}
+                    onClick={goToNextQuestion}
+                >
+                  СЛЕДУЮЩИЙ ВОПРОС
+                </div>
+            )}
+
+            <div className={"question"}>
+              {currentQuestions.easyQuestions[Number(params.questionsId)].question}
+            </div>
+
+            <div className={"all-ans-block"}>
+              {currentQuestions.easyQuestions[Number(params.questionsId)].answers.map((
+                  answer: string,
+                  id: number,
+              ) => {
+                return (
+                    <div key={id}>
+                      <div
+                          className={"quiz-answer-button"}
+                          onClick={() => addAnswer(
+                              answer,
+                              currentQuestions.easyQuestions[Number(params.questionsId)],
+                              Number(params.questionsId),
+                          )}
+                      >
+                        {currentQuestions.easyQuestions[Number(params.questionsId)].usersAnswer === answer ?
+                            (<span>* | </span>) : (<></>)
+                        }
+                        {answer}
+                      </div>
+                    </div>
+                );
+              })}
+            </div>
+
+            <div className={"all-ans-block"}>
+              {currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl !== "" ? (
+                  <div className={"question-image-block"}>
+                    <img
+                        width={"100%"}
+                        height={"auto"}
+                        src={`${currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl}`}
+                    />
+                  </div>
+              ) : (
+                  <>
+                  </>
+              )}
+            </div>
           </div>
-        </div>
       ) : (
-        <div>
-          <ErrorPage/>
-        </div>
-      )
-      }
+          <div>
+            <ErrorPage/>
+          </div>
+      )}
     </div>
   );
 };
