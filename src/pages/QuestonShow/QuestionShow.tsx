@@ -119,8 +119,7 @@ export const QuestionShow: React.FC = () => {
               {currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl !== "" ? (
                   <div className={"question-image-block"}>
                     <img
-                        width={"100%"}
-                        height={"auto"}
+                        className={"image-question-show"}
                         src={`${currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl}`}
                     />
                   </div>

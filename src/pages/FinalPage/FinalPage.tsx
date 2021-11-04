@@ -26,7 +26,7 @@ export const FinalPage: React.FC = () => {
     try {
         numberOfQuestions = allQuestions.length;
     } catch (e) {
-        numberOfQuestions = -1;
+        numberOfQuestions = 0;
     }
 
     const [usersMistakes, setUsersMistakes] = React.useState<ITypesOfQuestions[]>([]);

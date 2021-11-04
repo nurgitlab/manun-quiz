@@ -75,3 +75,8 @@
     overflow: hidden;
     border: solid 2px #f0ffff;
 }
+
+.image-question-show {
+    width: 100%;
+    height: auto;
+}
