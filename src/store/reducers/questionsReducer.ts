@@ -24,7 +24,7 @@ export const questionsReducer = (state = initialState, action: QAction): typedIn
     case QuestionsActionTypes.IMPORT_RANDOM_QUESTIONS: {
       let randomQuestions = [];
       for (let i = 0; i < 5; i++) {
-        let listOfQuestions: any[] = action.newQuestions.easyQuestions;
+        let listOfQuestions: ITypesOfQuestions[] = action.newQuestions.easyQuestions;
         let randomNum = Math.floor(Math.random() * (listOfQuestions.length - i)) + i;
         let mem = listOfQuestions[randomNum];
         listOfQuestions[randomNum] = listOfQuestions[i];

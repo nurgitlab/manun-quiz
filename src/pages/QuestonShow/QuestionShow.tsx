@@ -6,6 +6,7 @@ import {ErrorPage} from "../ErrorPage/ErrorPage";
 import "./QuestionShow.css";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {QuestionsActionTypes} from "../../store/reducers/todo";
+import {IAllQuestions, ITypesOfQuestions} from "../types";
 
 
 interface QuestionShowProps {
@@ -18,7 +19,7 @@ export const QuestionShow: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  const currentQuestions: any = useTypedSelector(state => state.questions.easyQuestions)
+  const currentQuestions: IAllQuestions = useTypedSelector(state => state.questions.easyQuestions)
 
   const [usersAnswer, setUsersAnswer] = React.useState("");
 
@@ -32,7 +33,7 @@ export const QuestionShow: React.FC = () => {
 
   const addAnswer = (
       answer: string,
-      question: string,
+      question: ITypesOfQuestions,
       qId: number,
   ) => {
     setUsersAnswer(answer);
@@ -50,7 +51,7 @@ export const QuestionShow: React.FC = () => {
 
   return (
     <div>
-      {(currentQuestions.length) !== 0 ? (
+      {(currentQuestions.easyQuestions.length) !== 0 ? (
           <div className={"question-main-block"}>
             <div className={"progress"}>
               {Number(params.questionsId) + 1} | {currentQuestions.easyQuestions.length}

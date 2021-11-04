@@ -16,7 +16,7 @@ export const FinalPage: React.FC = () => {
     const counterOfCorrectAnswers = useTypedSelector(state => state.questions.counter);
     const allQuestions = useTypedSelector(state => state.questions.easyQuestions.easyQuestions);
 
-    let numberOfQuestions;
+    let numberOfQuestions: number;
 
     try {
         numberOfQuestions = allQuestions.length;
@@ -40,9 +40,12 @@ export const FinalPage: React.FC = () => {
                     question.usersAnswer = "Вы не выбрали вариант ответа!";
                 }
                 memIncorrectArray.push({
+                    id: question.id,
                     question: question.question,
                     correctAnswer: question.correctAnswer,
                     usersAnswer: question.usersAnswer,
+                    imageUrl: question.imageUrl,
+                    answers: question.answers,
                 });
             }
         });

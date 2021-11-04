@@ -3,12 +3,12 @@ export interface IAllQuestions {
 }
 
 export interface ITypesOfQuestions {
-    id?: number
-    question?: string
-    answers?: string[]
+    id: number
+    question: string
+    answers: string[]
     correctAnswer: string
     usersAnswer: string
-    imageUrl?: string
+    imageUrl: string
 }
 
 export interface IFullArticles {
