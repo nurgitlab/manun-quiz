@@ -6,11 +6,12 @@ import "./MainPage.css";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {IArticle} from "../types";
 import {fetchNews} from "../../store/action-creators/news";
+import {useActions} from "../../hooks/useActions";
 
 
 export const MainPage: React.FC = () => {
     const history = useHistory();
-    const dispatch = useDispatch();
+    const {fetchNews} = useActions()
 
     const fullNews = useTypedSelector(state => state.news)
     const storeNews = fullNews.news
@@ -19,12 +20,8 @@ export const MainPage: React.FC = () => {
         history.push("/questions");
     };
 
-    const showNews = () => {
-        dispatch(fetchNews())
-    };
-
     React.useEffect(() => {
-        showNews();
+        fetchNews()
     }, []);
 
     return (
