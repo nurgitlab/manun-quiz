@@ -6,7 +6,9 @@ export enum QuestionsActionTypes {
 }
 
 export enum NewsActionTypes {
-    ADD_NEWS = "ADD_NEWS",
+    FETCH_NEWS = "FETCH_NEWS",
+    FETCH_NEWS_SUCCESS = "FETCH_NEWS_SUCCESS",
+    FETCH_NEWS_ERROR = "FETCH_NEWS_ERROR"
 }
 
 interface ImportRandomQuestionsAction {
@@ -21,10 +23,19 @@ interface AddAnswerAction {
     allQuestions: IAllQuestions
 }
 
-interface AddNewsAction {
-    type: NewsActionTypes.ADD_NEWS
-    news: IFullArticles
+interface FetchNewsAction {
+    type:NewsActionTypes.FETCH_NEWS
+}
+
+interface FetchNewsSuccessAction {
+    type:NewsActionTypes.FETCH_NEWS_SUCCESS
+    payload: IFullArticles
+}
+
+interface FetchNewsSuccessError {
+    type:NewsActionTypes.FETCH_NEWS_ERROR
+    payload: string | null
 }
 
 export type QuestionsAction = AddAnswerAction | ImportRandomQuestionsAction
-export type NewsAction = AddNewsAction
+export type NewsAction = FetchNewsAction | FetchNewsSuccessAction | FetchNewsSuccessError

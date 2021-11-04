@@ -1,38 +1,26 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 import {useHistory} from "react-router";
-import axios from "axios";
 
-import {ROOT_API} from "../consts";
 import "./MainPage.css";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {IArticle, IFullArticles} from "../types";
-import {NewsActionTypes} from "../../store/reducers/todo";
+import {IArticle} from "../types";
+import {fetchNews} from "../../store/action-creators/news";
 
 
 export const MainPage: React.FC = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const storeNews = useTypedSelector(state => state.news.news);
+    const fullNews = useTypedSelector(state => state.news)
+    const storeNews = fullNews.news
 
     const goToQuestions = () => {
         history.push("/questions");
     };
 
     const showNews = () => {
-        if (storeNews.articles.length === 0) {
-            axios.get<IFullArticles>(ROOT_API)
-                .then(response => {
-                    dispatch({
-                        type: NewsActionTypes.ADD_NEWS,
-                        news: response.data,
-                    });
-                })
-                .catch(e => {
-                    console.error(e.message);
-                });
-        }
+        dispatch(fetchNews())
     };
 
     React.useEffect(() => {
@@ -56,7 +44,7 @@ export const MainPage: React.FC = () => {
                         Проверь свои знания о Манчестер Юнайтеде!
                     </div>
                 </div>
-                {(storeNews.articles.length !== 0) ? (
+                {(!fullNews.loading) ? (
                     storeNews.articles.map((
                         article: IArticle,
                         id: number
@@ -82,10 +70,20 @@ export const MainPage: React.FC = () => {
                 ) : (
                     <div className={"article"}>
                         <div className={"article-title"}>
-                            Loading...
+                            Идёт загрузка новостей...
                         </div>
                     </div>
                 )}
+
+                {
+                    (fullNews.error !== null) ? (
+                        <div className={"article"}>
+                            <div className={"article-title"}>
+                                {fullNews.error}
+                            </div>
+                        </div>
+                    ) : (<></>)
+                }
             </div>
         </div>
     );

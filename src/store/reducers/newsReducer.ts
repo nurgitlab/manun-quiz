@@ -4,6 +4,8 @@ import {IFullArticles} from "../../pages/types";
 
 interface typedInitialState {
     news: IFullArticles,
+    loading: boolean,
+    error: null | string
 }
 
 const initialState: typedInitialState = {
@@ -12,14 +14,32 @@ const initialState: typedInitialState = {
         totalResults: 0,
         articles: []
     },
+    loading: false,
+    error: null
 };
 
 export const newsReducer = (state = initialState, action: NewsAction): typedInitialState => {
     switch (action.type) {
-        case NewsActionTypes.ADD_NEWS: {
+        case NewsActionTypes.FETCH_NEWS: {
             return {
                 ...state,
-                news: action.news
+                loading: true,
+            };
+        }
+
+        case NewsActionTypes.FETCH_NEWS_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                news: action.payload
+            };
+        }
+
+        case NewsActionTypes.FETCH_NEWS_ERROR: {
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
             };
         }
 
