@@ -26,4 +26,5 @@ interface AddNewsAction {
     news: IFullArticles
 }
 
-export type QAction = AddNewsAction | AddAnswerAction | ImportRandomQuestionsAction
+export type QuestionsAction = AddAnswerAction | ImportRandomQuestionsAction
+export type NewsAction = AddNewsAction

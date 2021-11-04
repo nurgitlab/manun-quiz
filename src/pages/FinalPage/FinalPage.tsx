@@ -34,7 +34,6 @@ export const FinalPage: React.FC = () => {
         setUsersMistakes([]);
         let memIncorrectArray: ITypesOfQuestions[] = [];
         allQuestions.map((question: ITypesOfQuestions) => {
-            console.log(question)
             if (question.correctAnswer !== question.usersAnswer) {
                 if (question.usersAnswer === "") {
                     question.usersAnswer = "Вы не выбрали вариант ответа!";
@@ -102,7 +101,9 @@ export const FinalPage: React.FC = () => {
                         </div>
                     )}
                 </div>
-            ) : (<ErrorPage/>)}
+            ) : (
+                <ErrorPage/>
+            )}
         </div>
     );
 };

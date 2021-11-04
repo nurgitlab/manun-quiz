@@ -14,7 +14,7 @@ export const MainPage: React.FC = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const storeNews = useTypedSelector(state => state.questions.news);
+    const storeNews = useTypedSelector(state => state.news.news);
 
     const goToQuestions = () => {
         history.push("/questions");
