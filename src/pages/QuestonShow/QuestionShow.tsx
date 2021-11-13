@@ -10,7 +10,7 @@ import {IAllQuestions, ITypesOfQuestions} from "../types";
 
 
 interface QuestionShowProps {
-  questionsId: string
+    questionsId: string
 }
 
 export const QuestionShow: React.FC = () => {
@@ -28,7 +28,7 @@ export const QuestionShow: React.FC = () => {
   };
 
   const goToPrevQuestion = () => {
-    history.push(`/questions/${Number(params.questionsId)  - 1}`);
+    history.push(`/questions/${Number(params.questionsId) - 1}`);
   };
 
   const goToFinalPage = () => {
@@ -50,90 +50,90 @@ export const QuestionShow: React.FC = () => {
   };
 
   return (
-    <div>
-      {(currentQuestions.easyQuestions.length) !== 0 ? (
-          <div className={"question-main-block"}>
-            <div className={"progress"}>
-              {Number(params.questionsId) + 1} | {currentQuestions.easyQuestions.length}
-            </div>
+      <div>
+        {(currentQuestions.easyQuestions.length) !== 0 ? (
+            <div className={"question-main-block"}>
+              <div className={"progress"}>
+                {Number(params.questionsId) + 1} | {currentQuestions.easyQuestions.length}
+              </div>
 
-            {Number(params.questionsId) === 0 ? (
-                <div className={"quiz-navigation"}>
-                  ЭТО ПЕРВЫЙ ВОПРОС!
-                </div>
-            ) : (
-                <div
-                    className={"quiz-navigation"}
-                    onClick={goToPrevQuestion}
-                >
-                  ПРЕДЫДУЩИЙ ВОПРОС
-                </div>
-            )}
-
-            {Number(params.questionsId) === (currentQuestions.easyQuestions.length - 1) ? (
-                <div
-                    className={"quiz-navigation"}
-                    onClick={goToFinalPage}
-                >
-                  ЗАКОНЧИТЬ ТЕСТ
-                </div>
-            ) : (
-                <div
-                    className={"quiz-navigation"}
-                    onClick={goToNextQuestion}
-                >
-                  СЛЕДУЮЩИЙ ВОПРОС
-                </div>
-            )}
-
-            <div className={"question"}>
-              {currentQuestions.easyQuestions[Number(params.questionsId)].question}
-            </div>
-
-            <div className={"all-ans-block"}>
-              {currentQuestions.easyQuestions[Number(params.questionsId)].answers.map((
-                  answer: string,
-                  id: number,
-              ) => {
-                return (
-                    <div key={id}>
-                      <div
-                          className={"quiz-answer-button"}
-                          onClick={() => addAnswer(
-                              answer,
-                              currentQuestions.easyQuestions[Number(params.questionsId)],
-                              Number(params.questionsId),
-                          )}
-                      >
-                        {currentQuestions.easyQuestions[Number(params.questionsId)].usersAnswer === answer ?
-                            (<span>* | </span>) : (<></>)
-                        }
-                        {answer}
-                      </div>
-                    </div>
-                );
-              })}
-            </div>
-
-            <div className={"all-ans-block"}>
-              {currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl !== "" ? (
-                  <div className={"question-image-block"}>
-                    <img
-                        className={"image-question-show"}
-                        src={`${currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl}`}
-                    />
+              {Number(params.questionsId) === 0 ? (
+                  <div className={"quiz-navigation"}>
+                    Это первый вопрос
                   </div>
               ) : (
-                  <>
-                  </>
+                  <div
+                      className={"quiz-navigation"}
+                      onClick={goToPrevQuestion}
+                  >
+                    Предыдущий вопрос
+                  </div>
               )}
+
+              {Number(params.questionsId) === (currentQuestions.easyQuestions.length - 1) ? (
+                  <div
+                      className={"quiz-navigation"}
+                      onClick={goToFinalPage}
+                  >
+                    Закончить тест
+                  </div>
+              ) : (
+                  <div
+                      className={"quiz-navigation"}
+                      onClick={goToNextQuestion}
+                  >
+                    Следующий вопрос
+                  </div>
+              )}
+
+              <div className={"question"}>
+                {currentQuestions.easyQuestions[Number(params.questionsId)].question}
+              </div>
+
+              <div className={"all-ans-block"}>
+                {currentQuestions.easyQuestions[Number(params.questionsId)].answers.map((
+                    answer: string,
+                    id: number,
+                ) => {
+                  return (
+                      <div key={id}>
+                        <div
+                            className={"quiz-answer-button"}
+                            onClick={() => addAnswer(
+                                answer,
+                                currentQuestions.easyQuestions[Number(params.questionsId)],
+                                Number(params.questionsId),
+                            )}
+                        >
+                          {currentQuestions.easyQuestions[Number(params.questionsId)].usersAnswer === answer ?
+                              (<span>* | </span>) : (<></>)
+                          }
+                          {answer}
+                        </div>
+                      </div>
+                  );
+                })}
+              </div>
+
+              <div className={"all-ans-block"}>
+                {currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl !== "" ? (
+                    <div className={"question-image-block"}>
+                      <img
+                          className={"image-question-show"}
+                          src={`${currentQuestions.easyQuestions[Number(params.questionsId)].imageUrl}`}
+                      />
+                    </div>
+                ) : (
+                    <>
+                    </>
+                )}
+              </div>
             </div>
-          </div>
-      ) : (
-          <div>
-            <ErrorPage/>
-          </div>
-      )}
-    </div>
+        ) : (
+            <div>
+              <ErrorPage/>
+            </div>
+        )}
+      </div>
   );
 };

@@ -47,6 +47,8 @@
     margin: 10px 0;
     display: block;
 
+    text-transform: uppercase;
+
     background: #808080;
     font-weight: 700;
     text-decoration: none;
